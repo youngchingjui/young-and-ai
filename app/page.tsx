@@ -1,16 +1,16 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 type Item = {
-  id: number;
-  title: string;
-  description: string;
-};
+  id: number
+  title: string
+  description: string
+}
 
 type SectionData = {
-  title: string;
-  items: Item[];
-};
+  title: string
+  items: Item[]
+}
 
 const sectionData: SectionData[] = [
   {
@@ -79,13 +79,13 @@ const sectionData: SectionData[] = [
       { id: 3, title: "Tweet 3", description: "Content of Tweet 3" },
     ],
   },
-];
+]
 
 export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
-      <header className="py-6 px-4 bg-white bg-opacity-80 backdrop-blur-sm">
-        <h1 className="text-3xl font-bold text-center text-gray-800">
+      <header className="container mx-auto pt-52 pb-6 px-4 bg-opacity-80 backdrop-blur-sm">
+        <h1 className="text-5xl font-bold text-gray-800 font-rokkitt">
           Young & AI
         </h1>
       </header>
@@ -95,12 +95,12 @@ export default function PortfolioPage() {
         ))}
       </main>
     </div>
-  );
+  )
 }
 
 function Section({ data }: { data: SectionData }) {
-  const displayItems = data.items.slice(0, 5);
-  const hasMoreItems = data.items.length > 5;
+  const displayItems = data.items.slice(0, 5)
+  const hasMoreItems = data.items.length > 5
 
   return (
     <section className="mb-12">
@@ -133,5 +133,5 @@ function Section({ data }: { data: SectionData }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
