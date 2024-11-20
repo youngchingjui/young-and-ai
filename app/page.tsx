@@ -1,101 +1,137 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export default function Home() {
+type Item = {
+  id: number;
+  title: string;
+  description: string;
+};
+
+type SectionData = {
+  title: string;
+  items: Item[];
+};
+
+const sectionData: SectionData[] = [
+  {
+    title: "Client Work",
+    items: [
+      { id: 1, title: "Project A", description: "Description for Project A" },
+      { id: 2, title: "Project B", description: "Description for Project B" },
+      { id: 3, title: "Project C", description: "Description for Project C" },
+      { id: 4, title: "Project D", description: "Description for Project D" },
+      { id: 5, title: "Project E", description: "Description for Project E" },
+      { id: 6, title: "Project F", description: "Description for Project F" },
+    ],
+  },
+  {
+    title: "Projects",
+    items: [
+      {
+        id: 1,
+        title: "Personal Project 1",
+        description: "Description for Personal Project 1",
+      },
+      {
+        id: 2,
+        title: "Personal Project 2",
+        description: "Description for Personal Project 2",
+      },
+      {
+        id: 3,
+        title: "Personal Project 3",
+        description: "Description for Personal Project 3",
+      },
+    ],
+  },
+  {
+    title: "Talks",
+    items: [
+      {
+        id: 1,
+        title: "Conference Talk 1",
+        description: "Description for Conference Talk 1",
+      },
+      { id: 2, title: "Workshop 1", description: "Description for Workshop 1" },
+      { id: 3, title: "Webinar 1", description: "Description for Webinar 1" },
+      {
+        id: 4,
+        title: "Panel Discussion",
+        description: "Description for Panel Discussion",
+      },
+      {
+        id: 5,
+        title: "Keynote Speech",
+        description: "Description for Keynote Speech",
+      },
+      {
+        id: 6,
+        title: "Tech Meetup Talk",
+        description: "Description for Tech Meetup Talk",
+      },
+    ],
+  },
+  {
+    title: "Tweets",
+    items: [
+      { id: 1, title: "Tweet 1", description: "Content of Tweet 1" },
+      { id: 2, title: "Tweet 2", description: "Content of Tweet 2" },
+      { id: 3, title: "Tweet 3", description: "Content of Tweet 3" },
+    ],
+  },
+];
+
+export default function PortfolioPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
+      <header className="py-6 px-4 bg-white bg-opacity-80 backdrop-blur-sm">
+        <h1 className="text-3xl font-bold text-center text-gray-800">
+          Young & AI
+        </h1>
+      </header>
+      <main className="container mx-auto px-4 py-8">
+        {sectionData.map((section, index) => (
+          <Section key={index} data={section} />
+        ))}
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
+  );
+}
+
+function Section({ data }: { data: SectionData }) {
+  const displayItems = data.items.slice(0, 5);
+  const hasMoreItems = data.items.length > 5;
+
+  return (
+    <section className="mb-12">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-semibold text-gray-700">{data.title}</h2>
+        {hasMoreItems && (
+          <Link
+            href={`/${data.title.toLowerCase().replace(/\s+/g, "-")}`}
+            passHref
+          >
+            <Button variant="outline" size="sm">
+              Show more
+            </Button>
+          </Link>
+        )}
+      </div>
+      <div className="relative">
+        <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+          {displayItems.map((item) => (
+            <div
+              key={item.id}
+              className="flex-none w-64 bg-white p-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105"
+            >
+              <h3 className="font-medium text-lg mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-600 truncate">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
