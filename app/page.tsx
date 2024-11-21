@@ -19,39 +19,45 @@ const sectionData: SectionData[] = [
     items: [
       {
         id: 1,
-        title: "Project A",
-        description: "Description for Project A",
-        link: "/projects/project-a",
+        title: "Swiss Consultancy Website",
+        description:
+          "Built and launched a publication website with 10k+ pages and 50k+ monthly views using NextJS and Wagtail. Improved SEO, loading speeds, and page rendering. Led a team of 6 as product manager and lead front-end developer.",
+        link: "/projects/swiss-consultancy-website",
       },
       {
         id: 2,
-        title: "Project B",
-        description: "Description for Project B",
-        link: "/projects/project-b",
+        title: "LLM-Powered API for German Manufacturer",
+        description:
+          "Developed a FastAPI API for an LLM-powered solution, integrating with Azure. Improved results by 3x over baseline GPT-4 results. Led a team of 4 as lead software engineer and architect.",
+        link: "/projects/llm-powered-api-german-manufacturer",
       },
       {
         id: 3,
-        title: "Project C",
-        description: "Description for Project C",
-        link: "/projects/project-c",
+        title: "MLOps for Health Tech Marketplace",
+        description:
+          "Implemented MLOps to train and deploy ML models predicting a Health Score Index. Built a front-end website for users to track dieting habits and view their Health Score.",
+        link: "/projects/mlops-health-tech-marketplace",
       },
       {
         id: 4,
-        title: "Project D",
-        description: "Description for Project D",
-        link: "/projects/project-d",
+        title: "Web Scraping for French Travel Services",
+        description:
+          "Developed a Puppeteer web scraping service to auto-fill government website forms for a French travel services company.",
+        link: "/projects/web-scraping-french-travel-services",
       },
       {
         id: 5,
-        title: "Project E",
-        description: "Description for Project E",
-        link: "/projects/project-e",
+        title: "Landing Page for Dubai AI Startup",
+        description:
+          "Built and deployed a landing page with complex animations and integrated Stripe for payments for a Dubai-based AI startup.",
+        link: "/projects/landing-page-dubai-ai-startup",
       },
       {
         id: 6,
-        title: "Project F",
-        description: "Description for Project F",
-        link: "/projects/project-f",
+        title: "Data Scraping for Financial Management",
+        description:
+          "Built data scraping and cleaning automation with Python and pandas for a financial management company.",
+        link: "/projects/data-scraping-financial-management",
       },
     ],
   },
