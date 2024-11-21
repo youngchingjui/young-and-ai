@@ -1,6 +1,10 @@
 import { sectionData } from "@/data/mockData"
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const { slug } = params
 
   // Find the project based on the slug

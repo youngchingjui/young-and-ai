@@ -16,17 +16,17 @@ export const sectionData: SectionData[] = [
     items: [
       {
         id: 1,
-        title: "Swiss Consultancy Website",
+        title: "NextJS Publication",
         description:
           "Built and launched a publication website with 10k+ pages and 50k+ monthly views using NextJS and Wagtail. Improved SEO, loading speeds, and page rendering. Led a team of 6 as product manager and lead front-end developer.",
-        slug: "swiss-consultancy-website",
+        slug: "nextjs-publication",
       },
       {
         id: 2,
-        title: "LLM-Powered API for German Manufacturer",
+        title: "Multi-agent RAG Architecture",
         description:
-          "Developed a FastAPI API for an LLM-powered solution, integrating with Azure. Improved results by 3x over baseline GPT-4 results. Led a team of 4 as lead software engineer and architect.",
-        slug: "llm-powered-api-german-manufacturer",
+          "Developed a multi-agent RAG architecture for a German manufacturer, integrating with Azure. Improved results by 3x over baseline GPT-4 results. Led a team of 4 as lead software engineer and architect.",
+        slug: "multi-agent-rag-architecture",
       },
       {
         id: 3,
@@ -37,10 +37,10 @@ export const sectionData: SectionData[] = [
       },
       {
         id: 4,
-        title: "Web Scraping for French Travel Services",
+        title: "Pupeteer Web Scraping",
         description:
           "Developed a Puppeteer web scraping service to auto-fill government website forms for a French travel services company.",
-        slug: "web-scraping-french-travel-services",
+        slug: "pupeteer-web-scraping",
       },
       {
         id: 5,
