@@ -51,7 +51,7 @@ function Section({ data }: { data: SectionData }) {
       <div className="relative">
         <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
           {displayItems.map((item) => (
-            <Link key={item.id} href={item.link} passHref>
+            <Link key={item.id} href={`/client/${item.slug}`} passHref>
               <div className="flex-none w-64 bg-white p-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105">
                 <h3 className="font-medium text-lg mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-600 truncate">
