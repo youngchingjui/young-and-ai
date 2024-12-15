@@ -12,6 +12,8 @@ const fetchData = async (): Promise<SectionData[]> => {
 export default async function PortfolioPage() {
   const data = await fetchData()
 
+  console.log("saving some new code")
+
   return (
     <div className="min-h-screen text-primary-foreground bg-gradient-to-br from-teal-800 via-teal-500 to-blue-300">
       <header className="container mx-auto pt-52 pb-6 px-4 bg-opacity-80 backdrop-blur-sm">
