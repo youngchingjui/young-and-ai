@@ -1,20 +1,16 @@
-```javascript
 import { sectionData, SectionData } from "@/data/mockData"
 import Section from "@/components/Section"
 
 const fetchData = async (): Promise<SectionData[]> => {
-  return new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-        if (sectionData && Array.isArray(sectionData)) {
-          resolve(sectionData)
-        } else {
-          reject(new Error("Invalid data format"))
-        }
-      }, 1000)
-    } catch (error) {
-      reject(new Error("Failed to fetch data"))
-    }
+  // Check if sectionData is an array and if it contains objects
+  if (!Array.isArray(sectionData) || !sectionData.every(item => typeof item === 'object')) {
+    throw new Error("Invalid section data format: expected an array of objects.");
+  }
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(sectionData)
+    }, 1000)
   })
 }
 
@@ -22,7 +18,7 @@ export default async function PortfolioPage() {
   try {
     const data = await fetchData()
 
-    console.log("retrieved data successfully")
+    console.log("saving some new code")
 
     return (
       <div className="min-h-screen text-primary-foreground bg-gradient-to-br from-teal-800 via-teal-500 to-blue-300">
@@ -37,17 +33,17 @@ export default async function PortfolioPage() {
       </div>
     )
   } catch (error) {
-    console.error("Error fetching data:", error.message)
-    return <div className="text-red-500">An error occurred while loading the portfolio. Please try again later.</div>
+    console.error("An error occurred while fetching section data:", error);
+    // Return an error message to the UI or another fallback content appropriate for your app
+    return (
+      <div className="min-h-screen text-primary-foreground bg-gradient-to-br from-teal-800 via-teal-500 to-blue-300">
+        <header className="container mx-auto pt-52 pb-6 px-4 bg-opacity-80 backdrop-blur-sm">
+          <h1 className="text-5xl font-bold font-rokkitt">Young & AI</h1>
+        </header>
+        <main className="container mx-auto px-4 py-8">
+          <p className="text-red-500">Failed to load portfolio sections. Please try again later.</p>
+        </main>
+      </div>
+    )
   }
 }
-```
-
-### Changes & Error Checking:
-1. **Error Handling for `fetchData`:** Added try-catch within the `new Promise` to catch any unexpected runtime errors and ensure `reject` is called appropriately.
-   
-2. **Data Validation:** Before resolving in the `setTimeout`, the code now checks if `sectionData` is an array to ensure the data format is correct.
-
-3. **Handling Errors in `PortfolioPage`:** Wrapped the entire logic in a try-catch block to handle possible errors from `fetchData` and provide feedback to the user by rendering an error message within the component if fetching fails.
-
-4. **Error Logging:** Added `console.error` for better logging in case of any data fetching issues, aiding in debugging during development.
