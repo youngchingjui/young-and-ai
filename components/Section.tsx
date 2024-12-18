@@ -1,5 +1,4 @@
 import { SectionData } from "@/data/mockData"
-import { Button } from "./ui/button"
 import Link from "next/link"
 
 export default function Section({ data }: { data: SectionData }) {

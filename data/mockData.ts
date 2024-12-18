@@ -86,9 +86,10 @@ export const sectionData: SectionData[] = [
     items: [
       {
         id: 1,
-        title: "Conference Talk 1",
-        description: "Description for Conference Talk 1",
-        slug: "conference-talk-1",
+        title: "LLM Structured Outputs Workshop",
+        description:
+          "Workshop on building an application with LLM structured outputs. 2024-12-18.",
+        slug: "llm-structured-outputs-workshop",
       },
       {
         id: 2,
