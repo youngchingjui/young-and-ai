@@ -1,3 +1,4 @@
+import Goals from "./slides/goals"
 import Slide0 from "./slides/slide0"
 import Slide1 from "./slides/slide1"
 import Slide2 from "./slides/slide2"
@@ -9,6 +10,7 @@ export default function Presentation() {
   return (
     <div>
       <Slide0 />
+      <Goals />
       <Slide1 />
       <Slide2 />
       <Slide3 />
