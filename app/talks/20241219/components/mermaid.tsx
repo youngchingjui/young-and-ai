@@ -7,7 +7,7 @@ interface MermaidProps {
   chart: string
 }
 
-export default async function Mermaid({ chart }: MermaidProps) {
+export default function Mermaid({ chart }: MermaidProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
