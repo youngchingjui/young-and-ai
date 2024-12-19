@@ -1,25 +1,13 @@
-"use client"
+import dynamic from "next/dynamic"
 
-import { useEffect, useRef } from "react"
-import mermaid from "mermaid"
+const MermaidRenderer = dynamic(() => import("./mermaid-renderer"), {
+  ssr: false,
+})
 
 interface MermaidProps {
   chart: string
 }
 
 export default function Mermaid({ chart }: MermaidProps) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (ref.current) {
-      mermaid.initialize({ startOnLoad: true })
-      mermaid.run({ nodes: [ref.current] })
-    }
-  }, [chart])
-
-  return (
-    <div ref={ref} className="mermaid">
-      {chart}
-    </div>
-  )
+  return <MermaidRenderer chart={chart} />
 }

@@ -13,7 +13,7 @@ export default function Slide4() {
           </h1>
           <div className="relative aspect-video w-full rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="/placeholder.svg?height=720&width=1280&text=App+Screenshot"
+              src="/talks/20241219/AI Form Filling Tool Screenshot.png"
               alt="Screenshot of the app we're building"
               layout="fill"
               objectFit="cover"
