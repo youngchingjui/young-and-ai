@@ -5,7 +5,7 @@ import CompanyWatermark from "../components/company-watermark"
 const tools = [
   {
     name: "Structured outputs",
-    image: "/placeholder.svg?height=200&width=300&text=Structured+Outputs",
+    image: "/talks/20241219/Screenshot 2024-12-19 at 12.41.26.png",
   },
   {
     name: "v0 for quick prototyping",
@@ -13,11 +13,11 @@ const tools = [
   },
   {
     name: "Cursor to continue chatting with codebase",
-    image: "/placeholder.svg?height=200&width=300&text=Cursor",
+    image: "/talks/20241219/Cursor screenshot.png",
   },
   {
     name: "NextJS framework (React, Javascript)",
-    image: "/placeholder.svg?height=200&width=300&text=NextJS",
+    image: "/talks/20241219/NextJS screenshot.png",
   },
 ]
 
