@@ -9,7 +9,7 @@ const tools = [
   },
   {
     name: "v0 for quick prototyping",
-    image: "/placeholder.svg?height=200&width=300&text=v0",
+    image: "/talks/20241219/v0 screenshot.png",
   },
   {
     name: "Cursor to continue chatting with codebase",
