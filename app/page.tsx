@@ -1,32 +1,41 @@
-import { sectionData, SectionData } from "@/data/mockData";
-import Section from "@/components/Section";
+import { SectionData } from "@/data/mockData";
+import Link from "next/link";
 
-const fetchData = async (): Promise<SectionData[]> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(sectionData);
-    }, 1000);
-  });
-};
+export default function Section({ data }: { data: SectionData }) {
+  const displayItems = data.items.slice(0, 5);
 
-export default async function PortfolioPage() {
-  const data = await fetchData();
+  const getItemHref = (item: (typeof data.items)[0]) => {
+    switch (item.type) {
+      case "talk":
+        return `/talks/${item.slug}`;
+      case "client":
+        return `/client/${item.slug}`;
+      default:
+        return `/client/${item.slug}`; // fallback to default route
+    }
+  };
 
   return (
-    <div className="min-h-screen text-primary-foreground bg-gradient-to-br from-teal-800 via-teal-500 to-blue-300">
-      <header className="container mx-auto pt-20 pb-6 px-4 bg-opacity-90 backdrop-blur-sm rounded-md shadow-lg">
-        <h1 className="text-5xl font-bold font-rokkitt text-white">Young & AI</h1>
-      </header>
-      <main className="container mx-auto px-4 py-8 grid gap-y-6">
-        {data.map((section, index) => (
-          <div
-            key={index}
-            className="bg-white text-black p-6 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 ease-in-out"
-          >
-            <Section data={section} />
-          </div>
-        ))}
-      </main>
-    </div>
+    <section className="mb-12">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-semibold">{data.title}</h2>
+      </div>
+      <div className="relative overflow-visible"> {/* Add this class for overflow visibility */}
+        <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+          {displayItems.map((item) => (
+            <Link key={item.id} href={getItemHref(item)} passHref>
+              <div className="flex-none w-64 bg-card p-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105 transform">
+                <h3 className="font-medium text-lg mb-2 text-card-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm truncate text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
