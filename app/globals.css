@@ -67,6 +67,32 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Keep default foreground coloring via Tailwind variable */
+    @apply text-foreground;
+
+    /* Light blue gradient background with a subtle animated shift */
+    background: linear-gradient(135deg, #d7ecff 0%, #e9f5ff 50%, #ffffff 100%);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+  }
+
+  /* Override in dark mode to keep things readable */
+  .dark body {
+    @apply bg-background;
+    background-image: none;
+    animation: none;
   }
 }
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
