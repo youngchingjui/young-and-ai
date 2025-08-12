@@ -1,6 +1,13 @@
 import { SectionData } from "@/data/mockData"
 import Link from "next/link"
 
+function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "")
+}
+
 export default function Section({ data }: { data: SectionData }) {
   const displayItems = data.items.slice(0, 5)
 
@@ -16,19 +23,19 @@ export default function Section({ data }: { data: SectionData }) {
   }
 
   return (
-    <section className="mb-12">
-      <div className="flex justify-between items-center mb-4">
+    <section id={slugify(data.title)} className="mb-12">
+      <div className="mb-4 flex items-center justify-between">
         <h2 className="text-2xl font-semibold">{data.title}</h2>
       </div>
       <div className="relative">
-        <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+        <div className="scrollbar-hide flex overflow-x-auto space-x-4 pb-4">
           {displayItems.map((item) => (
             <Link key={item.id} href={getItemHref(item)} passHref>
-              <div className="flex-none w-64 bg-card p-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105">
-                <h3 className="font-medium text-lg mb-2 text-card-foreground">
+              <div className="w-64 flex-none cursor-pointer rounded-lg bg-card p-4 shadow-md transition-transform hover:scale-105">
+                <h3 className="mb-2 text-lg font-medium text-card-foreground">
                   {item.title}
                 </h3>
-                <p className="text-sm truncate text-muted-foreground">
+                <p className="truncate text-sm text-muted-foreground">
                   {item.description}
                 </p>
               </div>
@@ -39,3 +46,4 @@ export default function Section({ data }: { data: SectionData }) {
     </section>
   )
 }
+
