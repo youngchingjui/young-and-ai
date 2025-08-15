@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import { Rokkitt } from "next/font/google"
 import "./globals.css"
+import BackgroundGradient from "@/components/BackgroundGradient"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,8 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rokkitt.className} antialiased`}
       >
-        {children}
+        {/* Site-wide subtle animated gradient backdrop */}
+        <BackgroundGradient />
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   )
 }
+
