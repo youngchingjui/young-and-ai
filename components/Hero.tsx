@@ -1,14 +1,12 @@
 export default function Hero() {
   return (
-    <section className="min-h-[85vh] flex items-start">
-      <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
-        <div className="space-y-3 text-left">
-          <p className="text-2xl md:text-base text-white/70">Young & AI</p>
-          <h1 className="font-extrabold leading-[0.9] text-[clamp(2.75rem,50vw,10rem)]">
-            WE BUILD AI
-          </h1>
-        </div>
-      </div>
+    <section className="relative min-h-dvh grid place-items-center px-4">
+      <p className="absolute left-4 top-6 md:left-8 md:top-8 text-base md:text-lg">Young & AI</p>
+      <h1 className="font-extrabold tracking-[-0.02em] leading-[0.82] text-center text-[clamp(2.5rem,25vmin,20rem)]">
+        <span className="block">WE</span>
+        <span className="block">BUILD</span>
+        <span className="block">AI</span>
+      </h1>
     </section>
   )
 }
