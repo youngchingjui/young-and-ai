@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-[90dvh] grid place-items-center px-4">
+    <section className="relative min-h-[90dvh] grid place-items-center px-4 pt-28 md:pt-32 pb-8">
       <div className="absolute w-full  top-16 md:left-8 md:top-16 text-2xl md:text-3xl text-center">
         <p className="text-2xl md:text-3xl">Young & AI</p>
       </div>
@@ -12,3 +12,4 @@ export default function Hero() {
     </section>
   )
 }
+
