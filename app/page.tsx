@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero"
 import Intro from "@/components/Intro"
+import IssueToPR from "@/components/IssueToPR"
 import Community from "@/components/Community"
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <Hero />
       <Intro />
+      <IssueToPR />
       <Community />
     </>
   )
