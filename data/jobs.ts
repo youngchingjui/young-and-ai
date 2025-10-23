@@ -25,8 +25,7 @@ export const JOBS: Job[] = [
       "Drive product awareness, user growth, and revenue for Issue To PR and other AI tools under Young & AI.",
     description:
       "We’re seeking a Marketing & Growth Associate who combines creative energy with disciplined execution. Your mission is to drive product awareness, user growth, and revenue — starting with Issue To PR, and later expanding to other AI-powered products under the Young & AI brand.",
-    applyEmail: "hello@youngandai.com",
-    applyUrl: "https://www.linkedin.com/company/youngandai/",
+    applyEmail: "hello@youngandai.com"
   },
 ]
 

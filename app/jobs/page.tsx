@@ -49,30 +49,17 @@ export default function JobsPage() {
                 {job.description && (
                   <p>{job.summary ?? job.description}</p>
                 )}
-                {(job.applyEmail || job.applyUrl) && (
+                {job.applyEmail && (
                   <p>
                     <strong>How to apply:</strong>{" "}
-                    {job.applyEmail && (
-                      <span className="whitespace-nowrap">
-                        <a
-                          className="text-blue-600 hover:underline"
-                          href={`mailto:${job.applyEmail}`}
-                        >
-                          {job.applyEmail}
-                        </a>
-                      </span>
-                    )}
-                    {job.applyEmail && job.applyUrl ? " or " : null}
-                    {job.applyUrl && (
+                    <span className="whitespace-nowrap">
                       <a
                         className="text-blue-600 hover:underline"
-                        href={job.applyUrl}
-                        target="_blank"
-                        rel="noreferrer"
+                        href={`mailto:${job.applyEmail}`}
                       >
-                        apply online
+                        {job.applyEmail}
                       </a>
-                    )}
+                    </span>
                   </p>
                 )}
               </CardContent>
