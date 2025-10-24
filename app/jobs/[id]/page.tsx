@@ -61,26 +61,9 @@ function AboutUsSection() {
   )
 }
 
-function ApplyCTAInline({ mailto }: { mailto: string }) {
+function ApplyCTACard({ mailto, className = "" }: { mailto: string; className?: string }) {
   return (
-    <div className="md:hidden">
-      <Button asChild className="w-full">
-        <a href={mailto} aria-label="Apply via email">
-          <Mail />
-          Apply by email
-        </a>
-      </Button>
-      <p className="mt-2 text-sm text-muted-foreground">
-        This will open your email client. Please attach your CV and a brief
-        cover letter.
-      </p>
-    </div>
-  )
-}
-
-function ApplyCTASidebar({ mailto }: { mailto: string }) {
-  return (
-    <Card className="hidden lg:block sticky top-24 h-fit">
+    <Card className={className}>
       <CardHeader>
         <CardTitle className="text-xl">Ready to apply?</CardTitle>
       </CardHeader>
@@ -144,7 +127,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
           </header>
 
           {/* Top CTA for mobile */}
-          <ApplyCTAInline mailto={mailto} />
+          <ApplyCTACard mailto={mailto} className="lg:hidden" />
 
           {/* Meta cards */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -221,13 +204,13 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
 
           {/* Bottom CTA for mobile */}
           <div className="mt-6">
-            <ApplyCTAInline mailto={mailto} />
+            <ApplyCTACard mailto={mailto} className="lg:hidden" />
           </div>
         </div>
 
         {/* Sidebar CTA */}
         <div className="mt-8 lg:mt-0">
-          <ApplyCTASidebar mailto={mailto} />
+          <ApplyCTACard mailto={mailto} className="hidden lg:block sticky top-24 h-fit" />
         </div>
       </div>
     </div>
