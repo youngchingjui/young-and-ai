@@ -17,7 +17,7 @@ export const JOBS: Job[] = [
     id: "marketing-growth-associate",
     title: "Marketing & Growth Associate",
     slug: "marketing-growth-associate",
-    location: "Shanghai (in-office, with flexibility)",
+    location: "JingAn District, Shanghai",
     commitment: "Full-time contract",
     compensation:
       "12,000 RMB / month + performance bonus tied to revenue milestones",
