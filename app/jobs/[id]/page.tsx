@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { JOBS } from "@/data/jobs"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,30 @@ export const dynamic = "force-static"
 
 export async function generateStaticParams() {
   return JOBS.map((job) => ({ id: job.id }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string }
+}): Promise<Metadata> {
+  const job = JOBS.find((j) => j.id === params.id)
+
+  if (!job) {
+    return {
+      title: "Jobs",
+      description: "Explore open roles at Young & AI.",
+    }
+  }
+
+  const description =
+    job.summary ??
+    `Learn more about the ${job.title} role at Young & AI${job.location ? ` in ${job.location}` : ""}.`
+
+  return {
+    title: job.title,
+    description,
+  }
 }
 
 // removed sections renderer in favor of markdown-only description

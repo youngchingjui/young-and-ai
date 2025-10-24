@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -5,6 +6,11 @@ import { ArrowRight } from "lucide-react"
 import { JOBS } from "@/data/jobs"
 
 export const dynamic = "force-static"
+
+export const metadata: Metadata = {
+  title: "Jobs",
+  description: "Explore open roles at Young & AI.",
+}
 
 export default function JobsPage() {
   return (
