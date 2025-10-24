@@ -44,7 +44,7 @@ function AboutUsSection() {
         internationally.
       </p>
       <p className="mt-2">
-        You'll work directly with{" "}
+        You&apos;ll work directly with{" "}
         <strong>
           <Link
             href="https://linkedin.com/in/chingjuiyoung"
@@ -226,3 +226,4 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
+
