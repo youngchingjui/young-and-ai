@@ -1,7 +1,7 @@
 import { JOBS } from "@/data/jobs"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail } from "lucide-react"
+import { Mail, ArrowLeft } from "lucide-react"
 import { Markdown } from "@/components/ui/markdown"
 import Link from "next/link"
 
@@ -44,7 +44,7 @@ function AboutUsSection() {
         internationally.
       </p>
       <p className="mt-2">
-        You'll work directly with{" "}
+        You&apos;ll work directly with{" "}
         <strong>
           <Link
             href="https://linkedin.com/in/chingjuiyoung"
@@ -123,6 +123,13 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mb-4">
+        <Button asChild variant="ghost" size="sm">
+          <Link href="/jobs" aria-label="Back to job listings">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to jobs
+          </Link>
+        </Button>
+      </div>
       <div className="lg:grid lg:grid-cols-3 lg:gap-8">
         <div className="lg:col-span-2">
           <header className="mb-6">
@@ -226,3 +233,4 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
+
