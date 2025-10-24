@@ -155,7 +155,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
           {/* Meta details combined into a single card */}
           {hasMeta && (
             <Card className="mt-6">
-              <CardContent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
+              <CardContent className="pt-4 sm:pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
                 {job.location && (
                   <div>
                     <div className="text-xs uppercase tracking-wide text-muted-foreground">
