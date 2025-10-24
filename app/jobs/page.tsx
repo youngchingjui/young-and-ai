@@ -28,38 +28,38 @@ export default function JobsPage() {
           const subtext = details.filter(Boolean).join(" • ")
 
           return (
-            <Card
+            <Link
               key={job.id}
-              className="group relative transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              href={`/jobs/${job.id}`}
+              aria-label={`Learn more about ${job.title}`}
+              className="block"
             >
-              <CardContent className="p-6 md:flex md:items-center md:justify-between">
-                <div className="space-y-2 md:pr-6">
-                  <h2 className="text-2xl font-semibold tracking-tight">{job.title}</h2>
-                  {job.summary && (
-                    <p className="text-base md:text-lg text-muted-foreground/90">
-                      {job.summary}
-                    </p>
-                  )}
-                  {subtext && (
-                    <p className="text-sm md:text-base text-muted-foreground/70">
-                      {subtext}
-                    </p>
-                  )}
-                </div>
-                <div className="mt-4 md:mt-0 md:pl-6 md:self-start">
-                  <Link
-                    href={`/jobs/${job.id}`}
-                    aria-label={`Learn more about ${job.title}`}
-                    className="inline-flex"
-                  >
-                    <Button variant="secondary">
-                      Learn more
-                      <ArrowRight className="ml-1" />
+              <Card className="group relative cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                <CardContent className="p-6 md:flex md:items-center md:justify-between">
+                  <div className="space-y-2 md:pr-6">
+                    <h2 className="text-2xl font-semibold tracking-tight">{job.title}</h2>
+                    {job.summary && (
+                      <p className="text-base md:text-lg text-muted-foreground/90">
+                        {job.summary}
+                      </p>
+                    )}
+                    {subtext && (
+                      <p className="text-sm md:text-base text-muted-foreground/70">
+                        {subtext}
+                      </p>
+                    )}
+                  </div>
+                  <div className="mt-4 md:mt-0 md:pl-6 md:self-start">
+                    <Button asChild variant="secondary">
+                      <span>
+                        Learn more
+                        <ArrowRight className="ml-1" />
+                      </span>
                     </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           )
         })}
       </div>
