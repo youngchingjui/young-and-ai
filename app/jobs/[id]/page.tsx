@@ -121,6 +121,12 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
   )
   const mailto = `mailto:${to}?subject=${subject}`
 
+  const hasMeta =
+    Boolean(job.location) ||
+    Boolean(job.commitment) ||
+    Boolean(job.compensation) ||
+    Boolean(job.language)
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-4">
@@ -146,57 +152,53 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
           {/* Top CTA for mobile */}
           <ApplyCTAInline mailto={mailto} />
 
-          {/* Meta cards */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {job.location && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">
-                    Location
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-base md:text-lg">
-                  {job.location}
-                </CardContent>
-              </Card>
-            )}
-            {job.commitment && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">
-                    Commitment
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-base md:text-lg">
-                  {job.commitment}
-                </CardContent>
-              </Card>
-            )}
-            {job.compensation && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">
-                    Compensation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-base md:text-lg">
-                  {job.compensation}
-                </CardContent>
-              </Card>
-            )}
-            {job.language && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm text-muted-foreground">
-                    Language
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-base md:text-lg">
-                  {job.language}
-                </CardContent>
-              </Card>
-            )}
-          </div>
+          {/* Meta details combined into a single card */}
+          {hasMeta && (
+            <Card className="mt-6">
+              <CardContent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
+                {job.location && (
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Location
+                    </div>
+                    <div className="mt-1 text-base md:text-lg text-card-foreground">
+                      {job.location}
+                    </div>
+                  </div>
+                )}
+                {job.commitment && (
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Commitment
+                    </div>
+                    <div className="mt-1 text-base md:text-lg text-card-foreground">
+                      {job.commitment}
+                    </div>
+                  </div>
+                )}
+                {job.compensation && (
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Compensation
+                    </div>
+                    <div className="mt-1 text-base md:text-lg text-card-foreground">
+                      {job.compensation}
+                    </div>
+                  </div>
+                )}
+                {job.language && (
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Language
+                    </div>
+                    <div className="mt-1 text-base md:text-lg text-card-foreground">
+                      {job.language}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
 
           {/* Role details */}
           <Card className="mt-8">
