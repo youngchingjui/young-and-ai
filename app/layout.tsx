@@ -21,7 +21,10 @@ const rokkitt = Rokkitt({
 })
 
 export const metadata: Metadata = {
-  title: "Young & AI",
+  title: {
+    default: "Young & AI",
+    template: "%s | Young & AI",
+  },
   description: "Building AI and software for enterprise",
 }
 
