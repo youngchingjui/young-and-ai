@@ -6,6 +6,9 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-5xl px-4 flex items-center justify-between">
         <p>© {new Date().getFullYear()} Young & AI</p>
         <nav className="flex items-center gap-6">
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
           <Link href="/jobs" className="hover:underline">
             Jobs
           </Link>
