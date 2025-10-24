@@ -6,25 +6,6 @@ import { JOBS } from "@/data/jobs"
 
 export const dynamic = "force-static"
 
-function formatCompensation(input?: string) {
-  if (!input) return ""
-  // Ensure format: "RMB 12,000 / month + performance bonus"
-  let s = input.trim()
-  s = s.replace(/(\d[\d,.]*)\s*RMB/i, "RMB $1")
-  s = s.replace(/\s+/g, " ")
-  return s
-}
-
-function formatLocation(input?: string) {
-  if (!input) return ""
-  let s = input
-  // Normalize JingAn -> Jingan, and drop the word "District"
-  s = s.replace(/Jing\s*An/gi, "Jingan").replace(/JingAn/gi, "Jingan")
-  s = s.replace(/\bDistrict\b/gi, "").replace(/\s{2,}/g, " ")
-  s = s.replace(/,\s*,/g, ", ")
-  return s.trim()
-}
-
 export default function JobsPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
@@ -41,9 +22,9 @@ export default function JobsPage() {
       <div className="grid grid-cols-1 gap-6">
         {JOBS.map((job) => {
           const details: string[] = []
-          if (job.location) details.push(formatLocation(job.location))
+          if (job.location) details.push(job.location)
           if (job.commitment) details.push(job.commitment)
-          if (job.compensation) details.push(formatCompensation(job.compensation))
+          if (job.compensation) details.push(job.compensation)
           const subtext = details.filter(Boolean).join(" • ")
 
           return (
