@@ -1,10 +1,29 @@
 import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { JOBS } from "@/data/jobs"
 
 export const dynamic = "force-static"
+
+function formatCompensation(input?: string) {
+  if (!input) return ""
+  // Ensure format: "RMB 12,000 / month + performance bonus"
+  let s = input.trim()
+  s = s.replace(/(\d[\d,.]*)\s*RMB/i, "RMB $1")
+  s = s.replace(/\s+/g, " ")
+  return s
+}
+
+function formatLocation(input?: string) {
+  if (!input) return ""
+  let s = input
+  // Normalize JingAn -> Jingan, and drop the word "District"
+  s = s.replace(/Jing\s*An/gi, "Jingan").replace(/JingAn/gi, "Jingan")
+  s = s.replace(/\bDistrict\b/gi, "").replace(/\s{2,}/g, " ")
+  s = s.replace(/,\s*,/g, ", ")
+  return s.trim()
+}
 
 export default function JobsPage() {
   return (
@@ -20,57 +39,50 @@ export default function JobsPage() {
       </header>
 
       <div className="grid grid-cols-1 gap-6">
-        {JOBS.map((job) => (
-          <Card
-            key={job.id}
-            className="group relative transition-all hover:-translate-y-0.5 hover:shadow-lg"
-          >
-            <CardHeader className="pb-2">
-              <CardTitle className="text-2xl">{job.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-base md:text-lg text-muted-foreground space-y-4">
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {job.location && (
-                  <span>
-                    <strong>Location:</strong> {job.location}
-                  </span>
-                )}
-                {job.commitment && (
-                  <span>
-                    <strong>Commitment:</strong> {job.commitment}
-                  </span>
-                )}
-                {job.compensation && (
-                  <span>
-                    <strong>Compensation:</strong> {job.compensation}
-                  </span>
-                )}
-                {job.language && (
-                  <span>
-                    <strong>Language:</strong> {job.language}
-                  </span>
-                )}
-              </div>
-              {job.summary && (
-                <p className="text-muted-foreground/90">{job.summary}</p>
-              )}
+        {JOBS.map((job) => {
+          const details: string[] = []
+          if (job.location) details.push(formatLocation(job.location))
+          if (job.commitment) details.push(job.commitment)
+          if (job.compensation) details.push(formatCompensation(job.compensation))
+          const subtext = details.filter(Boolean).join(" • ")
 
-              <div className="flex items-center justify-end">
-                <Link
-                  href={`/jobs/${job.id}`}
-                  aria-label={`Learn more about ${job.title}`}
-                  className="inline-flex"
-                >
-                  <Button variant="secondary">
-                    Learn more
-                    <ArrowRight className="ml-1" />
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+          return (
+            <Card
+              key={job.id}
+              className="group relative transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <CardContent className="p-6 md:flex md:items-center md:justify-between">
+                <div className="space-y-2 md:pr-6">
+                  <h2 className="text-2xl font-semibold tracking-tight">{job.title}</h2>
+                  {job.summary && (
+                    <p className="text-base md:text-lg text-muted-foreground/90">
+                      {job.summary}
+                    </p>
+                  )}
+                  {subtext && (
+                    <p className="text-sm md:text-base text-muted-foreground/70">
+                      {subtext}
+                    </p>
+                  )}
+                </div>
+                <div className="mt-4 md:mt-0 md:pl-6 md:self-start">
+                  <Link
+                    href={`/jobs/${job.id}`}
+                    aria-label={`Learn more about ${job.title}`}
+                    className="inline-flex"
+                  >
+                    <Button variant="secondary">
+                      Learn more
+                      <ArrowRight className="ml-1" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          )
+        })}
       </div>
     </div>
   )
 }
+

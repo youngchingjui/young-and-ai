@@ -17,9 +17,9 @@ export const JOBS: Job[] = [
     id: "marketing-growth-associate",
     title: "Marketing & Growth Associate",
     slug: "marketing-growth-associate",
-    location: "JingAn District, Shanghai",
+    location: "Jingan, Shanghai",
     commitment: "Full-time contract",
-    compensation: "12,000 RMB / month + performance bonus",
+    compensation: "RMB 12,000 / month + performance bonus",
     language: "Basic English proficiency",
     summary:
       "Drive product awareness, user growth, and revenue for Issue To PR and other AI tools under Young & AI.",
@@ -74,3 +74,4 @@ You’ll develop marketing strategies, test growth ideas, and experiment with in
     applyEmail: "jobs@youngandai.com",
   },
 ]
+
