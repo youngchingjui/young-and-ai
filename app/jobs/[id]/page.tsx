@@ -2,9 +2,10 @@ import type { Metadata } from "next"
 import { JOBS } from "@/data/jobs"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, ArrowLeft } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import { Markdown } from "@/components/ui/markdown"
 import Link from "next/link"
+import ApplyCTACard from "@/components/ApplyCTACard"
 
 export const dynamic = "force-static"
 
@@ -83,27 +84,6 @@ function AboutUsSection() {
         strategy, AI workflow design, and go-to-market execution.
       </p>
     </section>
-  )
-}
-
-function ApplyCTACard({ mailto, className = "" }: { mailto: string; className?: string }) {
-  return (
-    <Card className={className}>
-      <CardHeader>
-        <CardTitle className="text-xl">Ready to apply?</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <Button asChild className="w-full">
-          <a href={mailto} aria-label="Apply via email">
-            <Mail />
-            Apply
-          </a>
-        </Button>
-        <p className="text-sm text-muted-foreground">
-          Please include your CV and a brief cover letter.
-        </p>
-      </CardContent>
-    </Card>
   )
 }
 
