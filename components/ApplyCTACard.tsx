@@ -27,8 +27,7 @@ export function ApplyCTACard({ mailto, className = "" }: { mailto: string; class
       <CardContent className="space-y-3">
         {isWeChatBrowser ? (
           <div className="text-sm text-muted-foreground">
-            Please email your CV and a brief cover letter directly to
-            {" "}
+            Please email your CV and cover letter to{" "}
             <a
               href="mailto:jobs@youngandai.com"
               className="underline"
@@ -37,7 +36,6 @@ export function ApplyCTACard({ mailto, className = "" }: { mailto: string; class
               jobs@youngandai.com
             </a>
             .
-            <div className="mt-2">WeChat browser may block the email button, so copy the address above and send your application from your mail app.</div>
           </div>
         ) : (
           <>
