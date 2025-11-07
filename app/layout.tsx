@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     template: "%s | Young & AI",
   },
   description: "Building AI and software for enterprise",
+  icons: {
+    icon: [
+      { url: "/icon.svg", rel: "icon", type: "image/svg+xml" },
+    ],
+  },
 }
 
 export default function RootLayout({
