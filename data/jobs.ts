@@ -10,6 +10,7 @@ export type Job = {
   summary?: string
   applyEmail?: string
   applyUrl?: string
+  isOpen?: boolean
 }
 
 export const JOBS: Job[] = [
@@ -72,6 +73,7 @@ You’ll develop marketing strategies, test growth ideas, and experiment with in
 - **Long-term potential:** opportunity to evolve into a core marketing or growth leadership role as the company scales
 `,
     applyEmail: "jobs@youngandai.com",
+    isOpen: false,
   },
 ]
 

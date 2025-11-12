@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 }
 
 export default function JobsPage() {
+  const openJobs = JOBS.filter((job) => job.isOpen)
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <header className="mb-8">
@@ -25,50 +27,60 @@ export default function JobsPage() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-6">
-        {JOBS.map((job) => {
-          const details: string[] = []
-          if (job.location) details.push(job.location)
-          if (job.commitment) details.push(job.commitment)
-          if (job.compensation) details.push(job.compensation)
-          const subtext = details.filter(Boolean).join(" • ")
+      {openJobs.length === 0 ? (
+        <Card>
+          <CardContent className="p-6">
+            <p className="text-base md:text-lg text-muted-foreground">
+              We currently do not have any job openings.
+            </p>
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="grid grid-cols-1 gap-6">
+          {openJobs.map((job) => {
+            const details: string[] = []
+            if (job.location) details.push(job.location)
+            if (job.commitment) details.push(job.commitment)
+            if (job.compensation) details.push(job.compensation)
+            const subtext = details.filter(Boolean).join(" • ")
 
-          return (
-            <Link
-              key={job.id}
-              href={`/jobs/${job.id}`}
-              aria-label={`Learn more about ${job.title}`}
-              className="block"
-            >
-              <Card className="group relative cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-lg">
-                <CardContent className="p-6 md:flex md:items-center md:justify-between">
-                  <div className="space-y-2 md:pr-6">
-                    <h2 className="text-2xl font-semibold tracking-tight">{job.title}</h2>
-                    {job.summary && (
-                      <p className="text-base md:text-lg text-muted-foreground/90">
-                        {job.summary}
-                      </p>
-                    )}
-                    {subtext && (
-                      <p className="text-sm md:text-base text-muted-foreground/70">
-                        {subtext}
-                      </p>
-                    )}
-                  </div>
-                  <div className="mt-4 md:mt-0 md:pl-6 md:self-start">
-                    <Button asChild variant="secondary">
-                      <span>
-                        Learn more
-                        <ArrowRight className="ml-1" />
-                      </span>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          )
-        })}
-      </div>
+            return (
+              <Link
+                key={job.id}
+                href={`/jobs/${job.id}`}
+                aria-label={`Learn more about ${job.title}`}
+                className="block"
+              >
+                <Card className="group relative cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                  <CardContent className="p-6 md:flex md:items-center md:justify-between">
+                    <div className="space-y-2 md:pr-6">
+                      <h2 className="text-2xl font-semibold tracking-tight">{job.title}</h2>
+                      {job.summary && (
+                        <p className="text-base md:text-lg text-muted-foreground/90">
+                          {job.summary}
+                        </p>
+                      )}
+                      {subtext && (
+                        <p className="text-sm md:text-base text-muted-foreground/70">
+                          {subtext}
+                        </p>
+                      )}
+                    </div>
+                    <div className="mt-4 md:mt-0 md:pl-6 md:self-start">
+                      <Button asChild variant="secondary">
+                        <span>
+                          Learn more
+                          <ArrowRight className="ml-1" />
+                        </span>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }
