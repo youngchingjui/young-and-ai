@@ -101,6 +101,8 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
     )
   }
 
+  const isClosed = job.isOpen === false
+
   const to = job.applyEmail ?? "jobs@youngandai.com"
   const subject = encodeURIComponent(
     `Application: ${job.title} — Young & AI${
@@ -124,100 +126,117 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
           </Link>
         </Button>
       </div>
-      <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-        <div className="lg:col-span-2">
-          <header className="mb-6">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              {job.title}
-            </h1>
-            {job.summary && (
-              <p className="mt-3 text-base md:text-lg text-muted-foreground">
-                {job.summary}
-              </p>
+
+      {isClosed && (
+        <div className="mb-6 rounded-md border border-yellow-300 bg-yellow-50 p-4 text-yellow-900">
+          This position is closed. We are not accepting applications at this time.
+        </div>
+      )}
+
+      <div className={isClosed ? "opacity-60 pointer-events-none select-none" : ""} aria-disabled={isClosed}>
+        <div className="lg:grid lg:grid-cols-3 lg:gap-8">
+          <div className="lg:col-span-2">
+            <header className="mb-6">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+                {job.title}
+              </h1>
+              {job.summary && (
+                <p className="mt-3 text-base md:text-lg text-muted-foreground">
+                  {job.summary}
+                </p>
+              )}
+            </header>
+
+            {/* Top CTA for mobile */}
+            {!isClosed && <ApplyCTACard mailto={mailto} className="lg:hidden" />}
+
+            {/* Meta details combined into a single card */}
+            {hasMeta && (
+              <Card className="mt-6">
+                <CardContent className="pt-4 sm:pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
+                  {job.location && (
+                    <div>
+                      <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Location
+                      </div>
+                      <div className="mt-1 text-base md:text-lg text-card-foreground">
+                        {job.location}
+                      </div>
+                    </div>
+                  )}
+                  {job.commitment && (
+                    <div>
+                      <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Commitment
+                      </div>
+                      <div className="mt-1 text-base md:text-lg text-card-foreground">
+                        {job.commitment}
+                      </div>
+                    </div>
+                  )}
+                  {job.compensation && (
+                    <div>
+                      <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Compensation
+                      </div>
+                      <div className="mt-1 text-base md:text-lg text-card-foreground">
+                        {job.compensation}
+                      </div>
+                    </div>
+                  )}
+                  {job.language && (
+                    <div>
+                      <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Language
+                      </div>
+                      <div className="mt-1 text-base md:text-lg text-card-foreground">
+                        {job.language}
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             )}
-          </header>
 
-          {/* Top CTA for mobile */}
-          <ApplyCTACard mailto={mailto} className="lg:hidden" />
-
-          {/* Meta details combined into a single card */}
-          {hasMeta && (
-            <Card className="mt-6">
-              <CardContent className="pt-4 sm:pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
-                {job.location && (
-                  <div>
-                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
-                      Location
-                    </div>
-                    <div className="mt-1 text-base md:text-lg text-card-foreground">
-                      {job.location}
-                    </div>
-                  </div>
-                )}
-                {job.commitment && (
-                  <div>
-                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
-                      Commitment
-                    </div>
-                    <div className="mt-1 text-base md:text-lg text-card-foreground">
-                      {job.commitment}
-                    </div>
-                  </div>
-                )}
-                {job.compensation && (
-                  <div>
-                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
-                      Compensation
-                    </div>
-                    <div className="mt-1 text-base md:text-lg text-card-foreground">
-                      {job.compensation}
-                    </div>
-                  </div>
-                )}
-                {job.language && (
-                  <div>
-                    <div className="text-xs uppercase tracking-wide text-muted-foreground">
-                      Language
-                    </div>
-                    <div className="mt-1 text-base md:text-lg text-card-foreground">
-                      {job.language}
-                    </div>
+            {/* Role details */}
+            <Card className="mt-8">
+              <CardHeader>
+                <CardTitle className="text-2xl">Role details</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {job.description && (
+                  <div className="text-base md:text-lg text-muted-foreground space-y-4">
+                    <Markdown content={job.description} />
                   </div>
                 )}
               </CardContent>
             </Card>
-          )}
 
-          {/* Role details */}
-          <Card className="mt-8">
-            <CardHeader>
-              <CardTitle className="text-2xl">Role details</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {job.description && (
-                <div className="text-base md:text-lg text-muted-foreground space-y-4">
-                  <Markdown content={job.description} />
-                </div>
-              )}
-            </CardContent>
-          </Card>
+            {/* About Us */}
+            <Card className="mt-8">
+              <CardContent className="pt-6">
+                <AboutUsSection />
+              </CardContent>
+            </Card>
 
-          {/* About Us */}
-          <Card className="mt-8">
-            <CardContent className="pt-6">
-              <AboutUsSection />
-            </CardContent>
-          </Card>
-
-          {/* Bottom CTA for mobile */}
-          <div className="mt-6">
-            <ApplyCTACard mailto={mailto} className="lg:hidden" />
+            {/* Bottom CTA for mobile */}
+            <div className="mt-6">
+              {!isClosed && <ApplyCTACard mailto={mailto} className="lg:hidden" />}
+            </div>
           </div>
-        </div>
 
-        {/* Sidebar CTA */}
-        <div className="mt-8 lg:mt-0">
-          <ApplyCTACard mailto={mailto} className="hidden lg:block sticky top-24 h-fit" />
+          {/* Sidebar CTA */}
+          <div className="mt-8 lg:mt-0">
+            {!isClosed ? (
+              <ApplyCTACard mailto={mailto} className="hidden lg:block sticky top-24 h-fit" />
+            ) : (
+              <Card className="hidden lg:block sticky top-24 h-fit">
+                <CardContent className="p-4 text-muted-foreground">
+                  Applications are closed for this role.
+                </CardContent>
+              </Card>
+            )}
+          </div>
         </div>
       </div>
     </div>
