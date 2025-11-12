@@ -17,8 +17,10 @@ export default function Community() {
           </p>
           <div className="mt-10">
             <a
-              href="mailto:contact@youngandai.com?subject=AI%20Breakfast%20in%20Shanghai"
-              aria-label="Email to join AI Breakfast in Shanghai"
+              href="https://ai-breakfast.youngandai.com"
+              aria-label="Visit ai-breakfast.youngandai.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full border border-foreground/20 px-5 py-3 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-foreground/30 transition"
             >
               <Mail className="w-5 h-5" />
