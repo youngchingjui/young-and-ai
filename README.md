@@ -13,6 +13,7 @@ This repository is for the Young & AI NextJS website. It is a Next.js applicatio
   - Usage: Used for preview builds for branches and pull requests.
 - Subdomains
   - There are additional subdomains under youngandai.com that are maintained in other repositories and may or may not be hosted on the same EC2 server.
+  - ai-breakfast.youngandai.com — AI Breakfast event site (info + RSVP).
 
 ## Local development
 

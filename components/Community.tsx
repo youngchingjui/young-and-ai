@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 
 export default function Community() {
   return (
@@ -23,8 +23,8 @@ export default function Community() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full border border-foreground/20 px-5 py-3 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-foreground/30 transition"
             >
-              <Mail className="w-5 h-5" />
-              <span className="text-base md:text-lg">RSVP for Thursday&#39;s AI Breakfast</span>
+              <ExternalLink className="w-5 h-5" />
+              <span className="text-base md:text-lg">Learn more</span>
             </a>
           </div>
         </div>
