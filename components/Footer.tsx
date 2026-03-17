@@ -7,6 +7,12 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} Young & AI</p>
         <nav className="flex items-center gap-6">
           <Link
+            href="/services"
+            className="hover:text-foreground/60 transition-colors"
+          >
+            Services
+          </Link>
+          <Link
             href="/about"
             className="hover:text-foreground/60 transition-colors"
           >
