@@ -1,11 +1,11 @@
 export default function About() {
   return (
-    <div className="max-w-2xl mx-auto px-6">
-      <section className="pt-24 pb-20">
-        <h1 className="text-3xl md:text-4xl font-semibold leading-tight tracking-tight">
+    <div className="max-w-3xl mx-auto px-6">
+      <section className="pt-24 pb-24">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
           About
         </h1>
-        <div className="mt-8 space-y-4 text-foreground/80 text-lg leading-relaxed">
+        <div className="mt-10 space-y-6 text-foreground/80 text-xl leading-relaxed">
           <p>
             Young & AI was founded by Ching Jui Young in Shanghai. We build AI
             products and help companies adopt AI workflows — from early-stage
@@ -22,7 +22,7 @@ export default function About() {
               href="https://ai-breakfast.youngandai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-foreground/20 hover:decoration-foreground/40 transition-colors"
+              className="text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors"
             >
               AI Breakfast
             </a>
@@ -33,7 +33,7 @@ export default function About() {
         <p className="mt-10">
           <a
             href="mailto:contact@youngandai.com"
-            className="text-foreground/60 underline underline-offset-4 decoration-foreground/20 hover:text-foreground hover:decoration-foreground/40 transition-colors"
+            className="text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors"
           >
             contact@youngandai.com
           </a>
