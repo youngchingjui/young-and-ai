@@ -8,16 +8,16 @@ export default function Nav() {
       </Link>
       <div className="flex items-center gap-6 text-lg md:text-xl text-foreground/60">
         <Link
-          href="/#portfolio"
-          className="hover:text-foreground transition-colors"
-        >
-          Portfolio
-        </Link>
-        <Link
           href="/services"
           className="hover:text-foreground transition-colors"
         >
           Services
+        </Link>
+        <Link
+          href="/products"
+          className="hover:text-foreground transition-colors"
+        >
+          Products
         </Link>
         <Link
           href="/about"
