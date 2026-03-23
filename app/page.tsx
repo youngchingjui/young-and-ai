@@ -5,11 +5,19 @@ import {
   MessageSquare,
   GraduationCap,
   Zap,
+  Bot,
 } from "lucide-react"
 import BookingCTA from "@/components/BookingCTA"
 import { NEXT_PUBLIC_CALENDLY_LINK } from "@/lib/env"
 
 const services = [
+  {
+    title: "OpenClaw Setup",
+    description:
+      "Get a private, self-hosted AI assistant running across your messaging platforms. We handle the infrastructure, integrations, and custom workflows.",
+    icon: Bot,
+    href: "/services/open-claw",
+  },
   {
     title: "1-Day App Builds",
     description:
@@ -104,7 +112,7 @@ export default function Home() {
         <h2 className="text-xl uppercase tracking-widest text-primary/70 mb-10">
           Services
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service) => {
             const Icon = service.icon
             return (
