@@ -1,24 +1,18 @@
 import type { Metadata } from "next"
-import localFont from "next/font/local"
-import { Rokkitt } from "next/font/google"
+import { Montserrat, Merriweather } from "next/font/google"
 import "./globals.css"
 import Nav from "@/components/Nav"
 import Footer from "@/components/Footer"
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-})
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-sans",
 })
 
-const rokkitt = Rokkitt({
+const merriweather = Merriweather({
   weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-serif",
 })
 
 export const metadata: Metadata = {
@@ -42,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rokkitt.className} antialiased`}
+        className={`${montserrat.variable} ${merriweather.variable} ${montserrat.className} antialiased`}
       >
         <div className="min-h-screen flex flex-col">
           <Nav />
