@@ -1,5 +1,14 @@
 import { Metadata } from "next"
-import { Check, ArrowRight, Zap, Rocket, Building2 } from "lucide-react"
+import Link from "next/link"
+import {
+  ArrowRight,
+  MessageSquare,
+  GraduationCap,
+  Zap,
+  Check,
+  Rocket,
+  Building2,
+} from "lucide-react"
 import {
   NEXT_PUBLIC_STRIPE_1DAY_LINK,
   NEXT_PUBLIC_STRIPE_1WEEK_LINK,
@@ -8,45 +17,54 @@ import {
 } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Services | Young & AI",
   description:
-    "See what we've built, then let us build yours — from a 1-day prototype to a full product.",
+    "AI consulting, training, and rapid product builds. See how Young & AI can help your team ship with AI.",
 }
 
-const showcase = [
+const services = [
   {
-    name: "Issue to PR",
-    oneLiner: "Turns GitHub issues into ready-to-review pull requests",
-    businessValue:
-      "Engineering teams spend hours writing boilerplate code for well-defined tickets. This agent reads the issue, analyzes the repo, writes the code, and opens a PR — cutting issue-to-merge time by 96%.",
-    builtIn: "2 weeks",
-    url: "https://issuetopr.dev",
+    title: "1-Day App Builds",
+    description:
+      "Go from idea to working AI prototype in a single day. Deployed, functional, and ready to test with real users.",
+    icon: Zap,
+    href: "/services/1-day-app",
+    features: [
+      "Working prototype in 24 hours",
+      "Deployed to a live URL",
+      "Source code handoff",
+      "30-min walkthrough call",
+    ],
   },
   {
-    name: "Refolk",
-    oneLiner: "AI-generated customer personas from real data",
-    businessValue:
-      "Product teams make decisions based on guesswork about their users. Refolk synthesizes real customer data into living personas you can interview, debate with, and pressure-test ideas against.",
-    builtIn: "3 weeks",
-    url: "https://refolk.ai",
+    title: "AI Consulting",
+    description:
+      "We assess your workflows, identify high-impact AI opportunities, and build a practical roadmap for adoption. From strategy to implementation.",
+    icon: MessageSquare,
+    href: "/services/consulting",
+    features: [
+      "Workflow audit & opportunity mapping",
+      "Tool selection & architecture",
+      "Implementation support",
+      "Ongoing advisory",
+    ],
   },
   {
-    name: "Agent Form Filler",
-    oneLiner: "Fills out long, complicated forms using AI",
-    businessValue:
-      "Government applications, insurance forms, compliance paperwork — people waste hours on data entry. This agent takes voice or text input and fills multi-step forms automatically, reducing completion time from 45 minutes to under 5.",
-    builtIn: "1 week",
-  },
-  {
-    name: "File Renamer",
-    oneLiner: "Renames files based on what's actually in them",
-    businessValue:
-      "Teams drown in folders of IMG_4382.jpg and scan_final_v2.pdf. This desktop app uses GPT-4 Vision to look at each image or document and rename it descriptively — turning chaos into a searchable archive.",
-    builtIn: "2 days",
+    title: "AI Training & Workshops",
+    description:
+      "Hands-on sessions that get your team building with AI tools. From prompt engineering to deploying production agents.",
+    icon: GraduationCap,
+    href: "/services/training",
+    features: [
+      "Custom curriculum for your team",
+      "Hands-on exercises with real tools",
+      "From beginner to advanced",
+      "Follow-up support included",
+    ],
   },
 ]
 
-const tiers = [
+const buildTiers = [
   {
     name: "1-Day Build",
     price: "$950",
@@ -59,7 +77,7 @@ const tiers = [
       "Source code handoff",
       "30-min walkthrough",
     ],
-    stripeEnv: "NEXT_PUBLIC_STRIPE_1DAY_LINK",
+    stripeLink: NEXT_PUBLIC_STRIPE_1DAY_LINK,
     highlight: false,
   },
   {
@@ -75,7 +93,7 @@ const tiers = [
       "Auth, UI, deployment & CI/CD",
       "Documentation & handoff",
     ],
-    stripeEnv: "NEXT_PUBLIC_STRIPE_1WEEK_LINK",
+    stripeLink: NEXT_PUBLIC_STRIPE_1WEEK_LINK,
     highlight: true,
   },
   {
@@ -91,16 +109,10 @@ const tiers = [
       "Admin dashboard & analytics",
       "2 weeks post-launch support",
     ],
-    stripeEnv: "NEXT_PUBLIC_STRIPE_1MONTH_LINK",
+    stripeLink: NEXT_PUBLIC_STRIPE_1MONTH_LINK,
     highlight: false,
   },
 ]
-
-const stripeLinks: Record<string, string> = {
-  NEXT_PUBLIC_STRIPE_1DAY_LINK,
-  NEXT_PUBLIC_STRIPE_1WEEK_LINK,
-  NEXT_PUBLIC_STRIPE_1MONTH_LINK,
-}
 
 export default function ServicesPage() {
   return (
@@ -108,70 +120,69 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="pt-24 pb-24">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
-          We built these.{" "}
-          <span className="text-primary">Let us build yours.</span>
+          How we can <span className="text-primary">help</span>
         </h1>
         <p className="mt-6 text-xl text-foreground/60 leading-relaxed">
-          Every project below started as a conversation. Browse what
-          we&apos;ve shipped, then tell us what you need automated,
-          simplified, or built from scratch.
+          Whether you need strategic guidance, team upskilling, or a working
+          product built fast — we have a service for that.
         </p>
       </section>
 
-      {/* Showcase */}
+      {/* Service Cards */}
       <section className="pb-24">
-        <div className="divide-y divide-primary/15">
-          {showcase.map((project) => (
-            <div key={project.name} className="py-10 first:pt-0 last:pb-0">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold">
-                    {project.name}
-                  </h2>
-                  <p className="mt-1 text-lg text-primary/70 font-medium">
-                    {project.oneLiner}
-                  </p>
+        <div className="space-y-6">
+          {services.map((service) => {
+            const Icon = service.icon
+            return (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="group block rounded-2xl border border-primary/10 p-8 hover:border-primary/25 transition-colors"
+              >
+                <div className="flex items-start gap-4">
+                  <Icon className="w-7 h-7 text-primary shrink-0 mt-1" />
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h2>
+                    <p className="mt-2 text-lg text-foreground/60 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-center gap-2 text-sm text-foreground/50"
+                        >
+                          <Check className="w-4 h-4 text-primary/60 shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary/70 group-hover:text-primary transition-colors">
+                      Learn more <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
-                <span className="shrink-0 text-sm text-foreground/30 mt-2">
-                  Built in {project.builtIn}
-                </span>
-              </div>
-              <p className="mt-4 text-lg text-foreground/60 leading-relaxed">
-                {project.businessValue}
-              </p>
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm text-primary/70 hover:text-primary transition-colors"
-                >
-                  Visit {project.url.replace("https://", "")}
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              )}
-            </div>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       </section>
 
-      {/* Transition */}
-      <section className="pb-16">
+      {/* Build Packages */}
+      <section className="pb-24">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-          Have something in mind?
+          Build packages
         </h2>
         <p className="mt-4 text-xl text-foreground/60 leading-relaxed">
           Pick a timeline. You get a working product deployed to production —
-          not a proposal deck. Start small with a 1-day build, or go all in.
+          not a proposal deck.
         </p>
-      </section>
 
-      {/* Tiers */}
-      <section className="pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {tiers.map((tier) => {
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {buildTiers.map((tier) => {
             const Icon = tier.icon
-            const stripeLink = stripeLinks[tier.stripeEnv]
             return (
               <div
                 key={tier.name}
@@ -221,7 +232,7 @@ export default function ServicesPage() {
                 </ul>
 
                 <a
-                  href={stripeLink}
+                  href={tier.stripeLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`mt-6 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold transition-opacity ${
