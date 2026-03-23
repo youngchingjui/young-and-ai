@@ -84,7 +84,7 @@ The palette is restrained. Color is used for direction, not decoration.
 
 | Token                      | Role              | Usage                              |
 | -------------------------- | ----------------- | ---------------------------------- |
-| Primary (deep teal)        | Action & accent   | CTAs, links, section labels, icons |
+| Primary (deep navy)        | Action & accent   | CTAs, links, section labels, icons |
 | Foreground (dark charcoal) | Content           | Headlines, body text               |
 | Foreground/60              | Secondary content | Descriptions, supporting text      |
 | Background (off-white)     | Canvas            | Page background                    |
