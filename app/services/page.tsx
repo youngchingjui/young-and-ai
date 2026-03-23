@@ -5,6 +5,7 @@ import {
   MessageSquare,
   GraduationCap,
   Zap,
+  Bot,
   Check,
   Rocket,
   Building2,
@@ -23,6 +24,19 @@ export const metadata: Metadata = {
 }
 
 const services = [
+  {
+    title: "OpenClaw Setup",
+    description:
+      "Get a private, self-hosted AI assistant running across your messaging platforms. We handle infrastructure, integrations, and custom workflows.",
+    icon: Bot,
+    href: "/services/open-claw",
+    features: [
+      "Self-hosted on your infrastructure",
+      "Multi-channel messaging integration",
+      "Custom AI workflows & skills",
+      "Security hardening & compliance",
+    ],
+  },
   {
     title: "1-Day App Builds",
     description:
