@@ -6,7 +6,7 @@ interface MarqueeItem {
 }
 
 const items: MarqueeItem[] = [
-  { label: "Autonomous Coding Agents", href: "/projects/issue-to-pr" },
+  { label: "Autonomous Coding Agents", href: "https://issuetopr.dev" },
   { label: "OpenClaw", href: "/projects/openclaw" },
   { label: "AI Workshops", href: "/services/training" },
   { label: "Customer Personas", href: "/projects/refolk" },
@@ -21,15 +21,14 @@ const items: MarqueeItem[] = [
   { label: "Publication Websites", href: "/projects/luxury-society" },
   { label: "Health Scoring ML", href: "/projects/health-index" },
   { label: "Stock Trading Bots", href: "/projects/trading-bot" },
-  { label: "Children's Storybooks", href: "/projects/storycraft" },
+  { label: "AI-Generated Storytelling", href: "/projects/storycraft" },
   { label: "Calendar Analytics", href: "/projects/calendar-wrapped" },
-  { label: "Bank Stress Tests", href: "/projects/bank-stress-tests" },
+  { label: "Stress-Test Modeling", href: "/projects/bank-stress-tests" },
   { label: "VAT Form Automation", href: "/projects/izivat" },
   { label: "VPN Infrastructure", href: "/projects/burning-vpn" },
-  { label: "Language Learning", href: "/projects/speakzhongwen" },
   { label: "Excel Automation", href: "/projects/excelparser" },
   { label: "1-Day App Builds", href: "/services/1-day-app" },
-  { label: "Agent Harnessing", href: "/services/consulting" },
+  { label: "Agent Harnessing", href: "https://issuetopr.dev" },
 ]
 
 // Split items into 3 rows for visual variety
@@ -63,15 +62,30 @@ function MarqueeRow({
       <div
         className={`flex shrink-0 gap-3 ${speedClass} ${directionClass}`}
       >
-        {duped.map((item, i) => (
-          <Link
-            key={`${item.label}-${i}`}
-            href={item.href}
-            className="shrink-0 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 whitespace-nowrap hover:bg-white/10 hover:text-white transition-colors"
-          >
-            {item.label}
-          </Link>
-        ))}
+        {duped.map((item, i) => {
+          const className =
+            "shrink-0 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 whitespace-nowrap hover:bg-white/10 hover:text-white transition-colors"
+          const isExternal = item.href.startsWith("http")
+          return isExternal ? (
+            <a
+              key={`${item.label}-${i}`}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={className}
+            >
+              {item.label}
+            </a>
+          ) : (
+            <Link
+              key={`${item.label}-${i}`}
+              href={item.href}
+              className={className}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
@@ -80,6 +94,9 @@ function MarqueeRow({
 export default function Marquee() {
   return (
     <section className="relative -mx-6 overflow-hidden bg-primary py-10">
+      <p className="text-center text-sm uppercase tracking-widest text-white/50 mb-6">
+        Projects we&apos;ve shipped
+      </p>
       <div className="space-y-3">
         <MarqueeRow items={row1} direction="left" speed="normal" />
         <MarqueeRow items={row2} direction="right" speed="slow" />
