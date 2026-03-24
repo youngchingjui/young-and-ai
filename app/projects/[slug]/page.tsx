@@ -92,6 +92,18 @@ export default async function ProjectPage({
         <p className="text-lg text-foreground/60 leading-relaxed">
           {project.solution}
         </p>
+        {project.technologies && project.technologies.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Results */}

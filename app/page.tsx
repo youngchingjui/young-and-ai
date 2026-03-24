@@ -6,9 +6,9 @@ import {
   GraduationCap,
   Zap,
   Bot,
-  Mail,
 } from "lucide-react"
 import Marquee from "@/components/Marquee"
+import CyclingCTA from "@/components/CyclingCTA"
 import { NEXT_PUBLIC_CALENDLY_LINK } from "@/lib/env"
 
 const services = [
@@ -69,13 +69,6 @@ const products = [
     description:
       "Uses GPT-4 Vision to look at images and documents, then renames them descriptively. Turns folders of IMG_4382.jpg into a searchable archive.",
   },
-  {
-    name: "AI Breakfast",
-    tagline: "Community",
-    description:
-      "Weekly Shanghai meetup for founders, engineers, and operators working with AI. Practical, open, and focused on shipping.",
-    url: "https://ai-breakfast.youngandai.com",
-  },
 ]
 
 export default function Home() {
@@ -90,22 +83,13 @@ export default function Home() {
           Young &amp; AI is an AI studio that builds products, offers consulting,
           and runs training for teams ready to ship with AI.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-6">
-          <a
-            href={NEXT_PUBLIC_CALENDLY_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-primary px-8 py-4 text-xl font-bold text-white hover:opacity-90 transition-opacity"
-          >
-            Book a discovery call
-          </a>
-          <Link
-            href="/services"
-            className="text-xl text-foreground/50 underline underline-offset-4 decoration-foreground/20 hover:text-foreground/70 hover:decoration-foreground/40 transition-colors"
-          >
-            View services
-          </Link>
-        </div>
+        <CyclingCTA calendlyLink={NEXT_PUBLIC_CALENDLY_LINK} />
+        <Link
+          href="/services"
+          className="mt-3 inline-block text-xl text-foreground/50 underline underline-offset-4 decoration-foreground/20 hover:text-foreground/70 hover:decoration-foreground/40 transition-colors"
+        >
+          View services
+        </Link>
       </section>
 
       {/* Scrolling Marquee — full-width purple band */}
@@ -145,9 +129,12 @@ export default function Home() {
 
       {/* Products */}
       <section id="products" className="max-w-3xl mx-auto px-6 py-24">
-        <h2 className="text-xl uppercase tracking-widest text-primary/70 mb-10">
-          Products &amp; Projects
+        <h2 className="text-xl uppercase tracking-widest text-primary/70 mb-2">
+          Our Products
         </h2>
+        <p className="text-lg text-foreground/50 mb-10">
+          AI products that we built
+        </p>
         <div className="divide-y divide-primary/15">
           {products.map((product) => {
             const inner = (
@@ -206,17 +193,11 @@ export default function Home() {
               at scale.
             </p>
             <p>
-              We also run{" "}
-              <a
-                href="https://ai-breakfast.youngandai.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors"
-              >
-                AI Breakfast
-              </a>
-              , a weekly Shanghai meetup where founders, engineers, and operators
-              trade notes on what&apos;s working in AI.
+              With deep expertise in AI technologies — from building neural
+              networks before the LLM era to architecting production multi-agent
+              systems — and a consulting background helping businesses identify
+              and implement high-impact solutions, Ching brings both the
+              technical depth and strategic clarity to help teams ship with AI.
             </p>
           </div>
           <div className="mt-8">
@@ -231,39 +212,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blog / Newsletter */}
-      <section id="blog" className="max-w-3xl mx-auto px-6 py-24">
-        <h2 className="text-xl uppercase tracking-widest text-primary/70 mb-10">
-          Blog &amp; Newsletter
+      {/* AI Breakfast */}
+      <section id="community" className="max-w-3xl mx-auto px-6 py-24">
+        <h2 className="text-xl uppercase tracking-widest text-primary/70 mb-2">
+          AI Breakfast
         </h2>
-        <div className="rounded-2xl border border-primary/10 p-8 md:p-10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold">Stay in the loop</h3>
-              <p className="mt-3 text-lg text-foreground/60 leading-relaxed max-w-md">
-                We write about AI engineering, product building, and lessons
-                from running an AI studio. Practical insights — no hype.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 shrink-0">
-              <a
-                href="https://ai-breakfast.youngandai.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary/15 px-5 py-2.5 text-sm font-bold text-foreground hover:bg-primary/5 transition-colors"
-              >
-                Visit AI Breakfast
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href="mailto:contact@youngandai.com"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary/15 px-5 py-2.5 text-sm font-bold text-foreground hover:bg-primary/5 transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                Subscribe via email
-              </a>
-            </div>
-          </div>
+        <p className="text-lg text-foreground/50 mb-10">
+          Community
+        </p>
+        <div className="space-y-4 text-xl text-foreground/80 leading-relaxed">
+          <p>
+            We host a regular AI Breakfast every Thursday to help advance the
+            knowledge and adoption of AI tools and technology across the wider
+            community.
+          </p>
+          <p>
+            Please feel free to{" "}
+            <a
+              href="https://ai-breakfast.youngandai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors"
+            >
+              join us
+            </a>{" "}
+            if you want to learn more about AI.
+          </p>
         </div>
       </section>
 
@@ -284,7 +258,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-block rounded-lg bg-white px-8 py-4 text-xl font-bold text-primary hover:opacity-90 transition-opacity"
             >
-              Book a discovery call
+              Book a call
             </a>
             <a
               href="mailto:contact@youngandai.com"

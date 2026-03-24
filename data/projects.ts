@@ -8,6 +8,7 @@ export interface Project {
   challenge: string
   solution: string
   results: string[]
+  technologies?: string[]
 }
 
 export const projects: Project[] = [
@@ -146,8 +147,9 @@ export const projects: Project[] = [
   },
   {
     slug: "reqaiure",
-    title: "RFQ Document Parsing",
+    title: "Multi-agent RAG",
     subtitle: "Automated procurement document analysis",
+    technologies: ["LangChain", "LangGraph", "LangFuse"],
     heroImage:
       "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80",
     heroImageAlt: "Business documents and contracts on a desk",

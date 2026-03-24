@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { useState } from "react"
 
 interface MarqueeItem {
   label: string
@@ -7,7 +10,7 @@ interface MarqueeItem {
 
 const items: MarqueeItem[] = [
   { label: "Autonomous Coding Agents", href: "https://issuetopr.dev" },
-  { label: "OpenClaw", href: "/projects/openclaw" },
+  { label: "Secure OpenClaw Installation", href: "/projects/openclaw" },
   { label: "AI Workshops", href: "/services/training" },
   { label: "Customer Personas", href: "/projects/refolk" },
   { label: "Anomaly Detection", href: "/projects/mingju" },
@@ -15,7 +18,7 @@ const items: MarqueeItem[] = [
   { label: "Trend Detection", href: "/projects/fmcg-trends" },
   { label: "Form Automation", href: "/projects/form-filler" },
   { label: "Voice AI Chatbots", href: "/projects/talking-terry" },
-  { label: "RFQ Document Parsing", href: "/projects/reqaiure" },
+  { label: "Multi-agent RAG", href: "/projects/reqaiure" },
   { label: "AI Consulting", href: "/services/consulting" },
   { label: "Enterprise Dashboards", href: "/projects/tableau-optimization" },
   { label: "Publication Websites", href: "/projects/luxury-society" },
@@ -25,9 +28,8 @@ const items: MarqueeItem[] = [
   { label: "Calendar Analytics", href: "/projects/calendar-wrapped" },
   { label: "Stress-Test Modeling", href: "/projects/bank-stress-tests" },
   { label: "VAT Form Automation", href: "/projects/izivat" },
-  { label: "VPN Infrastructure", href: "/projects/burning-vpn" },
   { label: "Excel Automation", href: "/projects/excelparser" },
-  { label: "1-Day App Builds", href: "/services/1-day-app" },
+  { label: "Build a Mac App in 1 Day", href: "/services/1-day-app" },
   { label: "Agent Harnessing", href: "https://issuetopr.dev" },
 ]
 
@@ -40,10 +42,14 @@ function MarqueeRow({
   items,
   direction = "left",
   speed = "normal",
+  paused,
+  onInteract,
 }: {
   items: MarqueeItem[]
   direction?: "left" | "right"
   speed?: "slow" | "normal" | "fast"
+  paused: boolean
+  onInteract: () => void
 }) {
   const speedClass =
     speed === "slow"
@@ -58,9 +64,14 @@ function MarqueeRow({
   const duped = [...items, ...items]
 
   return (
-    <div className="flex overflow-hidden">
+    <div
+      className="flex overflow-hidden"
+      onTouchStart={onInteract}
+      onMouseDown={onInteract}
+    >
       <div
         className={`flex shrink-0 gap-3 ${speedClass} ${directionClass}`}
+        style={paused ? { animationPlayState: "paused" } : undefined}
       >
         {duped.map((item, i) => {
           const className =
@@ -92,15 +103,21 @@ function MarqueeRow({
 }
 
 export default function Marquee() {
+  const [paused, setPaused] = useState(false)
+
+  const handleInteract = () => {
+    setPaused(true)
+  }
+
   return (
-    <section className="relative -mx-6 overflow-hidden bg-primary py-10">
+    <section className="relative overflow-hidden bg-primary py-10">
       <p className="text-center text-sm uppercase tracking-widest text-white/50 mb-6">
         Projects we&apos;ve shipped
       </p>
       <div className="space-y-3">
-        <MarqueeRow items={row1} direction="left" speed="normal" />
-        <MarqueeRow items={row2} direction="right" speed="slow" />
-        <MarqueeRow items={row3} direction="left" speed="fast" />
+        <MarqueeRow items={row1} direction="left" speed="normal" paused={paused} onInteract={handleInteract} />
+        <MarqueeRow items={row2} direction="right" speed="slow" paused={paused} onInteract={handleInteract} />
+        <MarqueeRow items={row3} direction="left" speed="fast" paused={paused} onInteract={handleInteract} />
       </div>
     </section>
   )
