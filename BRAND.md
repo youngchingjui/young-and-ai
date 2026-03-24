@@ -80,21 +80,29 @@ Content leads. Design serves. Every visual choice should make the content cleare
 
 ### Color
 
-The palette is restrained. Color is used for direction, not decoration.
+The palette is restrained. Color is used for direction, not decoration. Royal purple conveys craft, intention, and humanity.
 
-| Token                      | Role              | Usage                              |
-| -------------------------- | ----------------- | ---------------------------------- |
-| Primary (deep navy)        | Action & accent   | CTAs, links, section labels, icons |
-| Foreground (dark charcoal) | Content           | Headlines, body text               |
-| Foreground/60              | Secondary content | Descriptions, supporting text      |
-| Background (off-white)     | Canvas            | Page background                    |
-| Accent (warm gold)         | Sparse highlight  | Used very sparingly for emphasis   |
+| Token                        | Role              | Usage                                        |
+| ---------------------------- | ----------------- | -------------------------------------------- |
+| Primary (royal purple)       | Action & accent   | CTAs, links, section labels, icons, bold bands |
+| Foreground (near-black)      | Content           | Headlines, body text                         |
+| Foreground/60                | Secondary content | Descriptions, supporting text                |
+| Background (off-white)       | Canvas            | Default page background                      |
+| Secondary (light lavender)   | Alternate canvas  | Alternating section backgrounds              |
+| Accent (warm gold)           | Sparse highlight  | Used very sparingly for emphasis              |
+
+**Section differentiation:**
+
+- Alternate between background (off-white) and secondary (light lavender) for adjacent sections
+- Use full-width primary (deep purple) bands for high-impact moments: marquee, bottom CTA
+- White cards on secondary backgrounds maintain hierarchy
 
 **Rules:**
 
-- Primary color marks interactive elements and section headers
+- Primary color marks interactive elements, section headers, and statement sections
 - Never use color purely for decoration
 - Maintain high contrast for readability
+- Keep it simple: no gradients on page elements (gradient reserved for favicon only)
 - Dark mode inverts canvas/content, preserves accent roles
 
 ### Spacing and layout

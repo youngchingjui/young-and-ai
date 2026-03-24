@@ -5,39 +5,39 @@
 
 @layer base {
   :root {
-    --background: 0.98 0.003 100;
-    --foreground: 0.25 0.012 250;
+    --background: 0.98 0.003 290;
+    --foreground: 0.18 0.02 290;
     --card: 1.0 0 0;
-    --card-foreground: 0.25 0.012 250;
+    --card-foreground: 0.18 0.02 290;
     --popover: 1.0 0 0;
-    --popover-foreground: 0.25 0.012 250;
-    --primary: 0.33 0.06 250;
+    --popover-foreground: 0.18 0.02 290;
+    --primary: 0.49 0.24 285;
     --primary-foreground: 1.0 0 0;
-    --secondary: 0.96 0.006 250;
-    --secondary-foreground: 0.33 0.04 250;
-    --muted: 0.96 0.004 250;
-    --muted-foreground: 0.55 0.01 250;
-    --accent: 0.78 0.12 70;
-    --accent-foreground: 0.25 0.012 250;
+    --secondary: 0.96 0.015 290;
+    --secondary-foreground: 0.40 0.12 285;
+    --muted: 0.95 0.01 290;
+    --muted-foreground: 0.50 0.02 290;
+    --accent: 0.80 0.10 85;
+    --accent-foreground: 0.18 0.02 290;
     --destructive: 0.55 0.2 25;
     --destructive-foreground: 1.0 0 0;
-    --border: 0.92 0.006 250;
-    --input: 0.92 0.006 250;
-    --ring: 0.33 0.06 250;
-    --chart-1: 0.33 0.06 250;
-    --chart-2: 0.78 0.12 70;
-    --chart-3: 0.50 0.06 250;
-    --chart-4: 0.7 0.1 70;
-    --chart-5: 0.25 0.05 250;
+    --border: 0.91 0.02 290;
+    --input: 0.91 0.02 290;
+    --ring: 0.49 0.24 285;
+    --chart-1: 0.49 0.24 285;
+    --chart-2: 0.80 0.10 85;
+    --chart-3: 0.60 0.16 285;
+    --chart-4: 0.75 0.08 85;
+    --chart-5: 0.35 0.18 285;
     --radius: 0.625rem;
-    --sidebar: 0.96 0.004 250;
-    --sidebar-foreground: 0.25 0.012 250;
-    --sidebar-primary: 0.33 0.06 250;
+    --sidebar: 0.96 0.01 290;
+    --sidebar-foreground: 0.18 0.02 290;
+    --sidebar-primary: 0.49 0.24 285;
     --sidebar-primary-foreground: 1.0 0 0;
-    --sidebar-accent: 0.78 0.12 70;
-    --sidebar-accent-foreground: 0.25 0.012 250;
-    --sidebar-border: 0.92 0.006 250;
-    --sidebar-ring: 0.33 0.06 250;
+    --sidebar-accent: 0.80 0.10 85;
+    --sidebar-accent-foreground: 0.18 0.02 290;
+    --sidebar-border: 0.91 0.02 290;
+    --sidebar-ring: 0.49 0.24 285;
     --font-sans: Montserrat, sans-serif;
     --font-serif: Merriweather, serif;
     --font-mono: Ubuntu Mono, monospace;
@@ -60,39 +60,39 @@
     --tracking-normal: 0em;
   }
   .dark {
-    --background: 0.2 0.01 250;
-    --foreground: 0.93 0.008 90;
-    --card: 0.25 0.01 250;
-    --card-foreground: 0.93 0.008 90;
-    --popover: 0.25 0.01 250;
-    --popover-foreground: 0.93 0.008 90;
-    --primary: 0.55 0.08 250;
+    --background: 0.18 0.03 290;
+    --foreground: 0.93 0.008 290;
+    --card: 0.22 0.03 290;
+    --card-foreground: 0.93 0.008 290;
+    --popover: 0.22 0.03 290;
+    --popover-foreground: 0.93 0.008 290;
+    --primary: 0.65 0.22 285;
     --primary-foreground: 1.0 0 0;
-    --secondary: 0.3 0.01 250;
-    --secondary-foreground: 0.93 0.008 90;
-    --muted: 0.25 0.01 250;
-    --muted-foreground: 0.7 0.01 250;
-    --accent: 0.78 0.12 70;
-    --accent-foreground: 0.2 0.01 250;
+    --secondary: 0.25 0.04 290;
+    --secondary-foreground: 0.93 0.008 290;
+    --muted: 0.22 0.03 290;
+    --muted-foreground: 0.65 0.02 290;
+    --accent: 0.80 0.10 85;
+    --accent-foreground: 0.18 0.03 290;
     --destructive: 0.55 0.2 25;
     --destructive-foreground: 1.0 0 0;
-    --border: 0.35 0.01 250;
-    --input: 0.35 0.01 250;
-    --ring: 0.55 0.08 250;
-    --chart-1: 0.55 0.08 250;
-    --chart-2: 0.78 0.12 70;
-    --chart-3: 0.65 0.06 250;
-    --chart-4: 0.7 0.1 70;
-    --chart-5: 0.4 0.06 250;
+    --border: 0.32 0.04 290;
+    --input: 0.32 0.04 290;
+    --ring: 0.65 0.22 285;
+    --chart-1: 0.65 0.22 285;
+    --chart-2: 0.80 0.10 85;
+    --chart-3: 0.55 0.16 285;
+    --chart-4: 0.75 0.08 85;
+    --chart-5: 0.45 0.18 285;
     --radius: 0.625rem;
-    --sidebar: 0.2 0.01 250;
-    --sidebar-foreground: 0.93 0.008 90;
-    --sidebar-primary: 0.55 0.08 250;
+    --sidebar: 0.18 0.03 290;
+    --sidebar-foreground: 0.93 0.008 290;
+    --sidebar-primary: 0.65 0.22 285;
     --sidebar-primary-foreground: 1.0 0 0;
-    --sidebar-accent: 0.78 0.12 70;
-    --sidebar-accent-foreground: 0.2 0.01 250;
-    --sidebar-border: 0.35 0.01 250;
-    --sidebar-ring: 0.55 0.08 250;
+    --sidebar-accent: 0.80 0.10 85;
+    --sidebar-accent-foreground: 0.18 0.03 290;
+    --sidebar-border: 0.32 0.04 290;
+    --sidebar-ring: 0.65 0.22 285;
     --font-sans: Montserrat, sans-serif;
     --font-serif: Merriweather, serif;
     --font-mono: Ubuntu Mono, monospace;
@@ -136,4 +136,26 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 45s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 20s linear infinite;
+}
+
+.direction-reverse {
+  animation-direction: reverse;
 }
