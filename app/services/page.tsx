@@ -18,9 +18,15 @@ import {
 } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "Services | Young & AI",
+  title: "Services",
   description:
     "AI consulting, training, and rapid product builds. See how Young & AI can help your team ship with AI.",
+  openGraph: {
+    title: "Services | Young & AI",
+    description:
+      "AI consulting, training, and rapid product builds. See how Young & AI can help your team ship with AI.",
+    url: "https://youngandai.com/services",
+  },
 }
 
 const services = [

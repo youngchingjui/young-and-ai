@@ -20,8 +20,27 @@ export async function generateMetadata({
   if (!project) return { title: "Project Not Found" }
 
   return {
-    title: `${project.title} | Young & AI`,
+    title: project.title,
     description: project.overview,
+    openGraph: {
+      title: `${project.title} | Young & AI`,
+      description: project.overview,
+      url: `https://youngandai.com/projects/${slug}`,
+      images: [
+        {
+          url: project.heroImage,
+          width: 1200,
+          height: 630,
+          alt: project.heroImageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Young & AI`,
+      description: project.overview,
+      images: [project.heroImage],
+    },
   }
 }
 

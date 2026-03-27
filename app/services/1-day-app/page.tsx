@@ -8,9 +8,30 @@ import {
 } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "1-Day App Builds | Young & AI",
+  title: "1-Day App Builds",
   description:
     "Go from idea to working AI prototype in a single day. Deployed, functional, and ready to test with real users. Starting at $950.",
+  openGraph: {
+    title: "1-Day App Builds | Young & AI",
+    description:
+      "Go from idea to working AI prototype in a single day. Deployed, functional, and ready to test with real users. Starting at $950.",
+    url: "https://youngandai.com/services/1-day-app",
+    images: [
+      {
+        url: "/glootie.png",
+        width: 512,
+        height: 512,
+        alt: "Glootie - Do you want to develop an app?",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "1-Day App Builds | Young & AI",
+    description:
+      "Go from idea to working AI prototype in a single day. Deployed, functional, and ready to test with real users. Starting at $950.",
+    images: ["/glootie.png"],
+  },
 }
 
 const howItWorks = [
@@ -89,12 +110,11 @@ export default function OneDayAppPage() {
       {/* Hero */}
       <section className="pt-8 pb-24">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
-          1-Day App{" "}
-          <span className="text-primary">Builds</span>
+          1-Day App <span className="text-primary">Builds</span>
         </h1>
         <p className="mt-6 text-xl text-foreground/60 leading-relaxed max-w-2xl">
-          Go from idea to working AI prototype in a single day. Not a mockup —
-          a deployed, functional app you can test with real users.
+          Go from idea to working AI prototype in a single day. Not a mockup — a
+          deployed, functional app you can test with real users.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-6">
           <a
@@ -196,8 +216,8 @@ export default function OneDayAppPage() {
             <span className="text-lg text-foreground/40">per build</span>
           </div>
           <p className="mt-4 text-lg text-foreground/60 leading-relaxed">
-            One flat price. Includes everything: design, development, deployment,
-            source code, and walkthrough. No hidden fees.
+            One flat price. Includes everything: design, development,
+            deployment, source code, and walkthrough. No hidden fees.
           </p>
           <p className="mt-4 text-base text-foreground/40">
             Need something bigger? Check out our{" "}

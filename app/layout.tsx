@@ -15,16 +15,43 @@ const merriweather = Merriweather({
   variable: "--font-serif",
 })
 
+const siteUrl = "https://youngandai.com"
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Young & AI",
     template: "%s | Young & AI",
   },
   description: "Building AI and software for enterprise",
   icons: {
-    icon: [
-      { url: "/icon.svg", rel: "icon", type: "image/svg+xml" },
+    icon: [{ url: "/icon.svg", rel: "icon", type: "image/svg+xml" }],
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Young & AI",
+    title: {
+      default: "Young & AI",
+      template: "%s | Young & AI",
+    },
+    description: "Building AI and software for enterprise",
+    url: siteUrl,
+    images: [
+      {
+        url: "/icon.svg",
+        width: 512,
+        height: 512,
+        alt: "Young & AI",
+      },
     ],
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: "Young & AI",
+      template: "%s | Young & AI",
+    },
+    description: "Building AI and software for enterprise",
   },
 }
 
@@ -47,4 +74,3 @@ export default function RootLayout({
     </html>
   )
 }
-

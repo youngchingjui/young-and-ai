@@ -4,9 +4,15 @@ import { ArrowUpRight, ArrowRight } from "lucide-react"
 import BookingCTA from "@/components/BookingCTA"
 
 export const metadata: Metadata = {
-  title: "Products | Young & AI",
+  title: "Products",
   description:
     "AI products built by Young & AI — from autonomous coding agents to AI customer personas.",
+  openGraph: {
+    title: "Products | Young & AI",
+    description:
+      "AI products built by Young & AI — from autonomous coding agents to AI customer personas.",
+    url: "https://youngandai.com/products",
+  },
 }
 
 const featured = [

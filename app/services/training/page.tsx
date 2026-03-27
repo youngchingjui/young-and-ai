@@ -4,9 +4,15 @@ import { ArrowLeft, Check } from "lucide-react"
 import { NEXT_PUBLIC_CALENDLY_LINK } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "AI Training & Workshops | Young & AI",
+  title: "AI Training & Workshops",
   description:
     "Hands-on AI training for teams. From prompt engineering to building production agents — custom workshops tailored to your stack.",
+  openGraph: {
+    title: "AI Training & Workshops | Young & AI",
+    description:
+      "Hands-on AI training for teams. From prompt engineering to building production agents — custom workshops tailored to your stack.",
+    url: "https://youngandai.com/services/training",
+  },
 }
 
 const formats = [

@@ -10,6 +10,11 @@ export const dynamic = "force-static"
 export const metadata: Metadata = {
   title: "Jobs",
   description: "Explore open roles at Young & AI.",
+  openGraph: {
+    title: "Jobs | Young & AI",
+    description: "Explore open roles at Young & AI.",
+    url: "https://youngandai.com/jobs",
+  },
 }
 
 export default function JobsPage() {
@@ -54,7 +59,9 @@ export default function JobsPage() {
                 <Card className="group relative cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-lg">
                   <CardContent className="p-6 md:flex md:items-center md:justify-between">
                     <div className="space-y-2 md:pr-6">
-                      <h2 className="text-2xl font-semibold tracking-tight">{job.title}</h2>
+                      <h2 className="text-2xl font-semibold tracking-tight">
+                        {job.title}
+                      </h2>
                       {job.summary && (
                         <p className="text-base md:text-lg text-muted-foreground/90">
                           {job.summary}
@@ -84,4 +91,3 @@ export default function JobsPage() {
     </div>
   )
 }
-

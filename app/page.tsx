@@ -80,16 +80,10 @@ export default function Home() {
           We Build <span className="text-primary">AI</span>
         </h1>
         <p className="mt-6 text-xl md:text-2xl text-foreground/60 leading-relaxed max-w-2xl">
-          Young &amp; AI is an AI studio that builds products, offers consulting,
-          and runs training for teams ready to ship with AI.
+          Young &amp; AI is an AI studio that builds products, offers
+          consulting, and runs training for teams ready to ship with AI.
         </p>
         <CyclingCTA calendlyLink={NEXT_PUBLIC_CALENDLY_LINK} />
-        <Link
-          href="/services"
-          className="mt-3 inline-block text-xl text-foreground/50 underline underline-offset-4 decoration-foreground/20 hover:text-foreground/70 hover:decoration-foreground/40 transition-colors"
-        >
-          View services
-        </Link>
       </section>
 
       {/* Scrolling Marquee — full-width purple band */}
@@ -188,9 +182,9 @@ export default function Home() {
                 Ching Jui Young
               </span>{" "}
               in Shanghai. With a background spanning enterprise software,
-              automation, and data platforms, Ching has helped companies of every
-              size adopt AI — from early prototypes to production systems running
-              at scale.
+              automation, and data platforms, Ching has helped companies of
+              every size adopt AI — from early prototypes to production systems
+              running at scale.
             </p>
             <p>
               With deep expertise in AI technologies — from building neural
@@ -217,9 +211,7 @@ export default function Home() {
         <h2 className="text-xl uppercase tracking-widest text-primary/70 mb-2">
           AI Breakfast
         </h2>
-        <p className="text-lg text-foreground/50 mb-10">
-          Community
-        </p>
+        <p className="text-lg text-foreground/50 mb-10">Community</p>
         <div className="space-y-4 text-xl text-foreground/80 leading-relaxed">
           <p>
             We host a regular AI Breakfast every Thursday to help advance the
@@ -248,8 +240,8 @@ export default function Home() {
             Ready to build?
           </h2>
           <p className="mt-4 text-xl text-white/70 max-w-lg mx-auto leading-relaxed">
-            Book a free 30-minute discovery call. We&apos;ll scope your project and
-            recommend the right package.
+            Book a free 30-minute discovery call. We&apos;ll scope your project
+            and recommend the right package.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
             <a

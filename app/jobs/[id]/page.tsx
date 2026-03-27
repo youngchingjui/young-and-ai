@@ -29,11 +29,18 @@ export async function generateMetadata({
 
   const description =
     job.summary ??
-    `Learn more about the ${job.title} role at Young & AI${job.location ? ` in ${job.location}` : ""}.`
+    `Learn more about the ${job.title} role at Young & AI${
+      job.location ? ` in ${job.location}` : ""
+    }.`
 
   return {
     title: job.title,
     description,
+    openGraph: {
+      title: `${job.title} | Young & AI`,
+      description,
+      url: `https://youngandai.com/jobs/${params.id}`,
+    },
   }
 }
 
@@ -129,11 +136,15 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
 
       {isClosed && (
         <div className="mb-6 rounded-md border border-yellow-300 bg-yellow-50 p-4 text-yellow-900">
-          This position is closed. We are not accepting applications at this time.
+          This position is closed. We are not accepting applications at this
+          time.
         </div>
       )}
 
-      <div className={isClosed ? "opacity-60 pointer-events-none select-none" : ""} aria-disabled={isClosed}>
+      <div
+        className={isClosed ? "opacity-60 pointer-events-none select-none" : ""}
+        aria-disabled={isClosed}
+      >
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
           <div className="lg:col-span-2">
             <header className="mb-6">
@@ -148,7 +159,9 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
             </header>
 
             {/* Top CTA for mobile */}
-            {!isClosed && <ApplyCTACard mailto={mailto} className="lg:hidden" />}
+            {!isClosed && (
+              <ApplyCTACard mailto={mailto} className="lg:hidden" />
+            )}
 
             {/* Meta details combined into a single card */}
             {hasMeta && (
@@ -221,14 +234,19 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
 
             {/* Bottom CTA for mobile */}
             <div className="mt-6">
-              {!isClosed && <ApplyCTACard mailto={mailto} className="lg:hidden" />}
+              {!isClosed && (
+                <ApplyCTACard mailto={mailto} className="lg:hidden" />
+              )}
             </div>
           </div>
 
           {/* Sidebar CTA */}
           <div className="mt-8 lg:mt-0">
             {!isClosed ? (
-              <ApplyCTACard mailto={mailto} className="hidden lg:block sticky top-24 h-fit" />
+              <ApplyCTACard
+                mailto={mailto}
+                className="hidden lg:block sticky top-24 h-fit"
+              />
             ) : (
               <Card className="hidden lg:block sticky top-24 h-fit">
                 <CardContent className="p-4 text-muted-foreground">
@@ -242,4 +260,3 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
-

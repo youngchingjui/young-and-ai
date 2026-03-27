@@ -4,9 +4,15 @@ import { ArrowLeft, Check } from "lucide-react"
 import { NEXT_PUBLIC_CALENDLY_LINK } from "@/lib/env"
 
 export const metadata: Metadata = {
-  title: "OpenClaw Setup | Young & AI",
+  title: "OpenClaw Setup",
   description:
     "Get OpenClaw — the open-source AI assistant — deployed, secured, and integrated with your messaging platforms and workflows.",
+  openGraph: {
+    title: "OpenClaw Setup | Young & AI",
+    description:
+      "Get OpenClaw — the open-source AI assistant — deployed, secured, and integrated with your messaging platforms and workflows.",
+    url: "https://youngandai.com/services/open-claw",
+  },
 }
 
 const whatYouGet = [
