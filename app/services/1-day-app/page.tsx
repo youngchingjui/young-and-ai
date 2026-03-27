@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import {
@@ -69,8 +70,24 @@ export default function OneDayAppPage() {
         </Link>
       </div>
 
+      {/* Glootie */}
+      <section className="pt-12 pb-0">
+        <div className="flex flex-col items-center text-center">
+          <Image
+            src="/glootie.png"
+            alt="Glootie from Rick and Morty"
+            width={150}
+            height={150}
+            className="rounded-full border-2 border-primary/20"
+          />
+          <p className="mt-3 text-lg italic text-foreground/50">
+            &ldquo;Do you want to develop an app?&rdquo;
+          </p>
+        </div>
+      </section>
+
       {/* Hero */}
-      <section className="pt-12 pb-24">
+      <section className="pt-8 pb-24">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
           1-Day App{" "}
           <span className="text-primary">Builds</span>
