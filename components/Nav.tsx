@@ -15,12 +15,12 @@ export default function Nav() {
 
   return (
     <nav className="w-full max-w-3xl mx-auto px-6 py-6 flex items-center justify-between relative">
-      <Link href="/" className="text-lg md:text-xl text-foreground font-bold">
+      <Link href="/" className="text-base md:text-lg text-foreground font-bold">
         Young & AI
       </Link>
 
       {/* Desktop nav */}
-      <div className="hidden md:flex items-center gap-6 text-lg md:text-xl text-foreground/60">
+      <div className="hidden md:flex items-center gap-6 text-sm md:text-base text-foreground/60">
         {navLinks.map((link) => (
           <Link
             key={link.href}
