@@ -17,6 +17,14 @@ export const metadata: Metadata = {
 
 const featured = [
   {
+    name: "Pulse",
+    tagline: "Business metrics dashboard for Mac",
+    description:
+      "A native Mac app that consolidates Stripe revenue, GitHub activity, and YouTube analytics into one lightweight dashboard. Fast local caching, Apple Keychain security, and Raycast integration.",
+    href: "/projects/pulse",
+    builtIn: "1 day",
+  },
+  {
     name: "Issue to PR",
     tagline: "Autonomous coding agent",
     description:
@@ -79,38 +87,47 @@ export default function ProductsPage() {
           Featured
         </h2>
         <div className="space-y-6">
-          {featured.map((product) => (
-            <a
-              key={product.name}
-              href={product.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-2xl border border-primary/10 p-8 hover:border-primary/25 transition-colors"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h2>
-                  <p className="mt-1 text-base text-primary/60 font-medium">
-                    {product.tagline}
-                  </p>
+          {featured.map((product) => {
+            const isExternal = "url" in product && product.url
+            const linkProps = isExternal
+              ? { href: product.url, target: "_blank" as const, rel: "noopener noreferrer" }
+              : { href: (product as { href: string }).href }
+
+            const Wrapper = isExternal ? "a" : Link
+
+            return (
+              <Wrapper
+                key={product.name}
+                {...linkProps}
+                className="group block rounded-2xl border border-primary/10 p-8 hover:border-primary/25 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">
+                      {product.name}
+                    </h2>
+                    <p className="mt-1 text-base text-primary/60 font-medium">
+                      {product.tagline}
+                    </p>
+                  </div>
+                  <ArrowUpRight className="w-6 h-6 mt-2 shrink-0 text-foreground/30 group-hover:text-primary transition-colors" />
                 </div>
-                <ArrowUpRight className="w-6 h-6 mt-2 shrink-0 text-foreground/30 group-hover:text-primary transition-colors" />
-              </div>
-              <p className="mt-4 text-lg text-foreground/60 leading-relaxed">
-                {product.description}
-              </p>
-              <div className="mt-4 flex items-center gap-4">
-                <span className="text-sm text-foreground/30">
-                  Built in {product.builtIn}
-                </span>
-                <span className="text-sm text-primary/70 group-hover:text-primary transition-colors">
-                  {product.url.replace("https://", "")}
-                </span>
-              </div>
-            </a>
-          ))}
+                <p className="mt-4 text-lg text-foreground/60 leading-relaxed">
+                  {product.description}
+                </p>
+                <div className="mt-4 flex items-center gap-4">
+                  <span className="text-sm text-foreground/30">
+                    Built in {product.builtIn}
+                  </span>
+                  {isExternal && (
+                    <span className="text-sm text-primary/70 group-hover:text-primary transition-colors">
+                      {product.url.replace("https://", "")}
+                    </span>
+                  )}
+                </div>
+              </Wrapper>
+            )
+          })}
         </div>
       </section>
 

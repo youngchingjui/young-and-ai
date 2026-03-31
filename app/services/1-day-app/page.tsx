@@ -121,6 +121,7 @@ const portfolioApps = [
   },
   {
     slug: "pulse",
+    href: "/projects/pulse",
     name: "Pulse",
     tagline: "A personal command center for creators and founders",
     highlights: [
@@ -132,7 +133,6 @@ const portfolioApps = [
     screenshots: [
       { src: "/portfolio/pulse/home.png", alt: "Home dashboard" },
       { src: "/portfolio/pulse/issues.png", alt: "Issue tracking" },
-      { src: "/portfolio/pulse/social.png", alt: "Social analytics" },
     ],
   },
 ]
@@ -314,7 +314,7 @@ export default function OneDayAppPage() {
           {portfolioApps.map((app) => (
             <Link
               key={app.slug}
-              href={`/services/1-day-app/portfolio/${app.slug}`}
+              href={app.href ?? `/services/1-day-app/portfolio/${app.slug}`}
               className="block group"
             >
               <div className="rounded-2xl border border-foreground/5 bg-foreground/[0.02] p-6 transition-colors hover:border-primary/20 hover:bg-primary/[0.02]">
