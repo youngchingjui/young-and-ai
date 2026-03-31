@@ -44,43 +44,41 @@ export default function PulseProjectPage() {
         </Link>
       </div>
 
-      {/* Hero — text + screenshot side by side */}
+      {/* Hero — text then full-width screenshot */}
       <section className="pt-12 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <p className="text-sm uppercase tracking-widest text-primary/70 mb-4">
-              1-Day Build
-            </p>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
-              Pulse
-            </h1>
-            <p className="mt-4 text-lg text-foreground/60 leading-relaxed">
-              A founder was checking Stripe, GitHub, and YouTube several times a
-              day — each one a separate browser tab, a separate login, a
-              separate wait. We built a native Mac app that puts all of it in
-              one place.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["SwiftUI", "API Integrations", "macOS"].map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+        <div className="max-w-3xl">
+          <p className="text-sm uppercase tracking-widest text-primary/70 mb-4">
+            1-Day Build
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+            Pulse
+          </h1>
+          <p className="mt-4 text-lg text-foreground/60 leading-relaxed">
+            A founder was checking Stripe, GitHub, and YouTube several times a
+            day — each one a separate browser tab, a separate login, a
+            separate wait. We built a native Mac app that puts all of it in
+            one place.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {["SwiftUI", "API Integrations", "macOS"].map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
-          <div className="rounded-xl overflow-hidden shadow-lg border border-foreground/5">
-            <Image
-              src="/portfolio/pulse/home.png"
-              alt="Pulse dashboard showing Stripe, GitHub, and YouTube metrics"
-              width={1200}
-              height={750}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
+        </div>
+        <div className="mt-10 rounded-xl overflow-hidden shadow-lg border border-foreground/5">
+          <Image
+            src="/portfolio/pulse/home.png"
+            alt="Pulse dashboard showing Stripe, GitHub, and YouTube metrics"
+            width={2400}
+            height={1600}
+            className="w-full h-auto"
+            priority
+          />
         </div>
       </section>
 
