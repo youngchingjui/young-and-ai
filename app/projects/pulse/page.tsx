@@ -100,8 +100,8 @@ export default function PulseProjectPage() {
         <p className="text-lg text-foreground/60 leading-relaxed">
           Pulse is a native macOS app that pulls metrics from multiple services
           into a single dashboard. It caches data locally, so the dashboard
-          loads in about half a second. API keys are stored in Apple&apos;s
-          Keychain rather than config files. And because it&apos;s a native app,
+          loads in about half a second. API keys are encrypted at rest rather
+          than stored in plain config files. And because it&apos;s a native app,
           you can open it from Spotlight or Raycast the same way you&apos;d open
           any other app on your Mac. The client started with Stripe, GitHub, and
           YouTube, but the app is built to add more services over time.
@@ -111,11 +111,13 @@ export default function PulseProjectPage() {
       {/* Feature: App launcher — image left, text right */}
       <section className="pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="rounded-xl border-2 border-dashed border-foreground/10 bg-foreground/[0.02] p-12 text-center aspect-video flex items-center justify-center">
-            <p className="text-foreground/30 text-sm">
-              Screenshot: Searching &ldquo;Pulse&rdquo; in Raycast or Spotlight
-            </p>
-          </div>
+          <Image
+            src="/portfolio/pulse/launcher.png"
+            alt="Searching 'Pulse' in Raycast launcher"
+            width={1724}
+            height={460}
+            className="rounded-xl"
+          />
           <div>
             <h2 className="text-xl font-bold mb-3">
               Open it like any other app
@@ -129,36 +131,16 @@ export default function PulseProjectPage() {
         </div>
       </section>
 
-      {/* Feature: Security — text left, image right */}
-      <section className="pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h2 className="text-xl font-bold mb-3">
-              API keys stay in Keychain
-            </h2>
-            <p className="text-foreground/60 leading-relaxed">
-              Credentials are stored in Apple&apos;s Keychain — the same
-              encrypted store that holds your passwords. Nothing in config
-              files, nothing in shell history.
-            </p>
-          </div>
-          <div className="rounded-xl border-2 border-dashed border-foreground/10 bg-foreground/[0.02] p-12 text-center aspect-video flex items-center justify-center">
-            <p className="text-foreground/30 text-sm">
-              Screenshot: Pulse entries in macOS Keychain Access (values
-              redacted)
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Feature: Keyboard shortcuts — image left, text right */}
       <section className="pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="rounded-xl border-2 border-dashed border-foreground/10 bg-foreground/[0.02] p-12 text-center aspect-video flex items-center justify-center">
-            <p className="text-foreground/30 text-sm">
-              Screenshot: Keyboard shortcuts in Pulse
-            </p>
-          </div>
+          <Image
+            src="/portfolio/pulse/shortcuts.png"
+            alt="Pulse dashboard showing keyboard shortcut hints on tabs"
+            width={2422}
+            height={1846}
+            className="rounded-xl"
+          />
           <div>
             <h2 className="text-xl font-bold mb-3">Keyboard shortcuts</h2>
             <p className="text-foreground/60 leading-relaxed">
