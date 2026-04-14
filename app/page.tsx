@@ -8,6 +8,7 @@ import {
   Bot,
 } from "lucide-react"
 import Marquee from "@/components/Marquee"
+import ClientLogos from "@/components/ClientLogos"
 import CyclingCTA from "@/components/CyclingCTA"
 import { NEXT_PUBLIC_CALENDLY_LINK } from "@/lib/env"
 
@@ -88,6 +89,9 @@ export default function Home() {
 
       {/* Scrolling Marquee — full-width purple band */}
       <Marquee />
+
+      {/* Client logos — Worked with */}
+      <ClientLogos />
 
       {/* Services — subtle secondary background for contrast */}
       <section id="services" className="bg-secondary">
